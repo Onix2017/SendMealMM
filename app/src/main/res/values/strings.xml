@@ -1,3 +1,11 @@
 <resources>
+    <string name="registro_titulo">Registrar Usuario</string>
+    <string name="registro_nombre">Nombre</string>
+    <string name="registro_clave">Clave</string>
+    <string name="registro_clave2">Repetir Clave</string>
+    <string name="registro_correo">Correo Electronico</string>
+    <string name="registro_tarjeta">Tarjeta de Credito</string>
     <string name="app_name">SendMeal</string>
+
+
 </resources>
