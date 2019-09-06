@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_titulo"
-        android:textSize="@dimen/titulo"
+        android:textSize="32dp"
         android:textColor="@color/titulo"
         android:textStyle="bold" />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="@string/registro_nombre"
         android:textColor="@color/etiqueta"
-        android:textSize="@dimen/etiquetas" />
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/regNombre"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/etiqueta"
         android:text="@string/registro_clave"
-        android:textSize="@dimen/etiquetas" />
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/regClave"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:text="@string/registro_clave2"
         android:textColor="@color/etiqueta"
-        android:textSize="@dimen/etiquetas" />
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/editText2"
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:text="@string/registro_correo"
         android:textColor="@color/etiqueta"
-        android:textSize="@dimen/etiquetas" />
+        android:textSize="16px" />
 
     <EditText
         android:id="@+id/regMail"
@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:text="@string/registro_tarjeta"
         android:textColor="@color/etiqueta"
-        android:textSize="@dimen/etiquetas" />
+        android:textSize="16dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
