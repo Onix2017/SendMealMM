@@ -5,6 +5,11 @@
     <string name="registro_clave2">Repetir Clave</string>
     <string name="registro_correo">Correo Electronico</string>
     <string name="registro_tarjeta">Tarjeta de Credito</string>
+    <string name="registro_credito">Crédito Inicial</string>
+    <string name="registro_notificar">Notificar por Correo Electrónico</string>
+    <string name="registro_vendedor">Es Vendedor</string>
+    <string name="registro_ctaalias">Alias CBU</string>
+    <string name="registro_ctaalia">CBU</string>
     <string name="app_name">SendMeal</string>
 
 
