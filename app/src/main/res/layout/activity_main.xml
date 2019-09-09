@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_titulo"
-        android:textSize="32dp"
-        android:textColor="@color/titulo"
+        android:textSize="@dimen/titulo"
+        android:textColor="@color/titulo_"
         android:textStyle="bold" />
 
     <TextView
@@ -21,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_nombre"
-        android:textColor="@color/etiqueta"
-        android:textSize="16dp" />
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
 
     <EditText
         android:id="@+id/regNombre"
@@ -35,9 +35,9 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/etiqueta"
+        android:textColor="@color/etiqueta_"
         android:text="@string/registro_clave"
-        android:textSize="16dp" />
+        android:textSize="@dimen/etiqueta" />
 
     <EditText
         android:id="@+id/regClave"
@@ -51,8 +51,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_clave2"
-        android:textColor="@color/etiqueta"
-        android:textSize="16dp" />
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
 
     <EditText
         android:id="@+id/editText2"
@@ -66,8 +66,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_correo"
-        android:textColor="@color/etiqueta"
-        android:textSize="16px" />
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
 
     <EditText
         android:id="@+id/regMail"
@@ -81,8 +81,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_tarjeta"
-        android:textColor="@color/etiqueta"
-        android:textSize="16dp" />
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -161,7 +161,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/etiqueta"
+        android:textColor="@color/etiqueta_"
         android:text="@string/registro_credito" />
 
     <SeekBar
