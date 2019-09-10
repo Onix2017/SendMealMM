@@ -11,6 +11,7 @@
     <string name="registro_ctaalias">Alias CBU</string>
     <string name="registro_ctaalia">CBU</string>
     <string name="app_name">SendMeal</string>
+    <string name="numTarjeta">1234567890</string>
 
 
 </resources>

@@ -97,7 +97,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:maxLength="16"
-            android:numeric="decimal"
+            android:digits="@string/numTarjeta"
             android:text="Numero" />
 
         <EditText
@@ -108,7 +108,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:maxLength="3"
-            android:numeric="decimal"
+            android:digits="@string/numTarjeta"
             android:text="CCV" />
 
         <EditText
@@ -231,6 +231,7 @@
         android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="enviar"
         android:text="Registrar" />
 
 </LinearLayout>
