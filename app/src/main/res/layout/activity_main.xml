@@ -160,7 +160,8 @@
     </RadioGroup>
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/txtCredInicial"
+        android:layout_width="109dp"
         android:layout_height="wrap_content"
         android:text="@string/registro_credito"
         android:textColor="@color/etiqueta_" />
@@ -168,7 +169,7 @@
     <SeekBar
         android:id="@+id/regCredito"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="31dp"
         android:max="1500" />
 
     <TextView

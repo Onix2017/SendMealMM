@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -19,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout LayCuenta;
     private CheckBox AceptaTerminos;
     private Button Registrar;
+    private RadioButton BtnBase, BtnFull, BtnPremiun;
+    private SeekBar SeekCreditoInicial;
+    private TextView CreditoInicial;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,7 +42,16 @@ public class MainActivity extends AppCompatActivity {
         MMAATarjeta = (EditText) findViewById(R.id.regVto);
         AceptaTerminos = (CheckBox) findViewById(R.id.aceptaCondiciones);
         Registrar = (Button) findViewById(R.id.btnRegistrar);
+        BtnBase = (RadioButton) findViewById(R.id.optBase);
+        BtnFull = (RadioButton) findViewById(R.id.optFull);
+        BtnPremiun = (RadioButton) findViewById(R.id.optPremium);
+        SeekCreditoInicial = (SeekBar) findViewById(R.id.regCredito);
+        CreditoInicial = (TextView) findViewById(R.id.txtCredInicial);
+
+
+
     }
+
 
     public void Vendedor(View v){
         SwVend = (Switch) findViewById(R.id.optEsVendedor);
@@ -51,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
     public void AceptaTerminos(View v){
         if(AceptaTerminos.isChecked()) {
             Registrar.setEnabled(true);
