@@ -11,12 +11,11 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/registro_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_titulo"
-        android:textSize="@dimen/titulo"
         android:textColor="@color/titulo_"
+        android:textSize="@dimen/titulo"
         android:textStyle="bold" />
 
     <TextView
@@ -35,11 +34,10 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/etiqueta_"
         android:text="@string/registro_clave"
+        android:textColor="@color/etiqueta_"
         android:textSize="@dimen/etiqueta" />
 
     <EditText
@@ -51,7 +49,6 @@
         android:password="true" />
 
     <TextView
-        android:id="@+id/regClave2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_clave2"
@@ -59,7 +56,7 @@
         android:textSize="@dimen/etiqueta" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/regClave2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -67,7 +64,6 @@
         android:password="true" />
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_correo"
@@ -82,7 +78,6 @@
         android:inputType="textPersonName" />
 
     <TextView
-        android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_tarjeta"
@@ -96,44 +91,46 @@
 
         <EditText
             android:id="@+id/regNro"
-            android:layout_width="226dp"
+            android:layout_width="229dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="@string/numTarjeta"
             android:ems="10"
             android:inputType="textPersonName"
             android:maxLength="16"
-            android:digits="@string/numTarjeta"
-            android:text="Numero" />
+            android:hint="Numero" />
 
         <EditText
-            android:id="@+id/editText6"
-            android:layout_width="wrap_content"
+            android:id="@+id/regDigito"
+            android:layout_width="91dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="@string/numTarjeta"
             android:ems="10"
             android:inputType="textPersonName"
             android:maxLength="3"
-            android:digits="@string/numTarjeta"
-            android:text="CCV" />
+            android:hint="CCV" />
 
         <EditText
-            android:id="@+id/editText7"
-            android:layout_width="wrap_content"
+            android:id="@+id/regVto"
+            android:layout_width="102dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:digits="1234567890-"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="MM/AA" />
+            android:maxLength="5"
+            android:hint="MM-AA" />
 
     </LinearLayout>
 
     <RadioGroup
+        android:id="@+id/tipoCuentaGrp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textView6"
             android:layout_width="103dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -163,11 +160,10 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/etiqueta_"
-        android:text="@string/registro_credito" />
+        android:text="@string/registro_credito"
+        android:textColor="@color/etiqueta_" />
 
     <SeekBar
         android:id="@+id/regCredito"
@@ -176,7 +172,6 @@
         android:max="1500" />
 
     <TextView
-        android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/registro_notificar" />
@@ -188,7 +183,7 @@
         android:text="NO ENVIAR NOTIFICACIONES AL MAIL" />
 
     <Switch
-        android:id="@+id/SwVendedor"
+        android:id="@+id/optEsVendedor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="Vendedor"
@@ -198,10 +193,10 @@
         android:id="@+id/layoutCuenta"
         android:layout_width="match_parent"
         android:layout_height="92dp"
+        android:visibility="gone"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/registro_ctaalia" />
@@ -214,7 +209,6 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/registro_ctaalias" />
@@ -232,6 +226,8 @@
         android:id="@+id/aceptaCondiciones"
         android:layout_width="match_parent"
         android:layout_height="59dp"
+        android:onClick="AceptaTerminos"
+        android:checked="false"
         android:text='"Acepta terminos y condiciones"' />
 
     <Button
@@ -239,6 +235,7 @@
         android:layout_width="match_parent"
         android:layout_height="63dp"
         android:onClick="enviar"
+        android:enabled="false"
         android:text="Registrar" />
 
 </LinearLayout>
