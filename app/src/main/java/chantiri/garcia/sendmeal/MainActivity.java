@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -13,6 +15,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private EditText Nombre, Contraseña, ReContraseña,Email;
     private Switch SwVend;
+    private LinearLayout LayoutVend;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Contraseña = (EditText) findViewById(R.id.regClave);
         ReContraseña = (EditText) findViewById(R.id.editText2);
         Email = (EditText) findViewById(R.id.regMail);
+        LayoutVend = (LinearLayout) findViewById(R.id.layoutCuenta);
 
 
     }
@@ -32,9 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
         if(SwVend.isChecked())
         {
+            LayoutVend.setVisibility(View.VISIBLE);
+
             Toast.makeText(this,"Encendido",Toast.LENGTH_LONG).show();
         }else
         {
+            LayoutVend.setVisibility(View.GONE);
+
             Toast.makeText(this,"Apagado",Toast.LENGTH_LONG).show();
         }
 

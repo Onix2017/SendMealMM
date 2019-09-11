@@ -198,7 +198,8 @@
         android:id="@+id/layoutCuenta"
         android:layout_width="match_parent"
         android:layout_height="92dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/textView8"
