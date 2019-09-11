@@ -45,9 +45,53 @@ public class MainActivity extends AppCompatActivity {
         BtnBase = (RadioButton) findViewById(R.id.optBase);
         BtnFull = (RadioButton) findViewById(R.id.optFull);
         BtnPremiun = (RadioButton) findViewById(R.id.optPremium);
+
+
         SeekCreditoInicial = (SeekBar) findViewById(R.id.regCredito);
         CreditoInicial = (TextView) findViewById(R.id.txtCredInicial);
+  //      Text_message = (TextView)findViewById(R.id.message_id);
+  //      seekbar = (SeekBar)findViewById(R.id.seekbar);
 
+        // Get the progress value of the SeekBar
+        // using setOnSeekBarChangeListener() method
+        SeekCreditoInicial
+                .setOnSeekBarChangeListener(
+                        new SeekBar
+                                .OnSeekBarChangeListener() {
+
+                            // When the progress value has changed
+                            @Override
+                            public void onProgressChanged(
+                                    SeekBar seekBar,
+                                    int progress,
+
+                                    boolean fromUser)
+                            {
+
+                                // increment 1 in progress and
+                                // increase the textsize
+                                // with the value of progress
+
+                                CreditoInicial.setText(String.valueOf(progress + 1));
+                            }
+
+                            @Override
+                            public void onStartTrackingTouch(SeekBar seekBar)
+                            {
+
+                                // This method will automatically
+                                // called when the user touches the SeekBar
+                            }
+
+                            @Override
+                            public void onStopTrackingTouch(SeekBar seekBar)
+                            {
+
+                                // This method will automatically
+                                // called when the user
+                                // stops touching the SeekBar
+                            }
+                        });
 
 
     }
