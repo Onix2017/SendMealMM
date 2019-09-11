@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         SeekCreditoInicial = (SeekBar) findViewById(R.id.regCredito);
         CreditoInicial = (TextView) findViewById(R.id.txtCredInicial);
-  //      Text_message = (TextView)findViewById(R.id.message_id);
-  //      seekbar = (SeekBar)findViewById(R.id.seekbar);
 
         // Get the progress value of the SeekBar
         // using setOnSeekBarChangeListener() method
