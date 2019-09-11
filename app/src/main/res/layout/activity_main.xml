@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/registro_titulo"
@@ -44,7 +47,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:password="true" />
 
     <TextView
         android:id="@+id/regClave2"
@@ -59,7 +63,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:password="true" />
 
     <TextView
         android:id="@+id/textView4"
@@ -183,12 +188,14 @@
         android:text="NO ENVIAR NOTIFICACIONES AL MAIL" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/SwVendedor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="Vendedor"
         android:text="@string/registro_vendedor" />
 
     <LinearLayout
+        android:id="@+id/layoutCuenta"
         android:layout_width="match_parent"
         android:layout_height="92dp"
         android:orientation="vertical">
@@ -202,7 +209,7 @@
         <EditText
             android:id="@+id/ctaAlias"
             android:layout_width="match_parent"
-            android:layout_height="29dp"
+            android:layout_height="28dp"
             android:ems="10"
             android:inputType="textPersonName" />
 
@@ -215,7 +222,7 @@
         <EditText
             android:id="@+id/ctaCBU"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName" />
 
@@ -224,14 +231,15 @@
     <CheckBox
         android:id="@+id/aceptaCondiciones"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="59dp"
         android:text='"Acepta terminos y condiciones"' />
 
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="63dp"
         android:onClick="enviar"
         android:text="Registrar" />
 
 </LinearLayout>
+</ScrollView>
