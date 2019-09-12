@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton BtnBase, BtnFull, BtnPremiun;
     private SeekBar SeekCreditoInicial;
     private TextView CreditoInicial;
+    private RadioGroup tipoCuenta;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         BtnBase = (RadioButton) findViewById(R.id.optBase);
         BtnFull = (RadioButton) findViewById(R.id.optFull);
         BtnPremiun = (RadioButton) findViewById(R.id.optPremium);
+        tipoCuenta = (RadioGroup) findViewById(R.id.tipoCuentaGrp);
 
 
         SeekCreditoInicial = (SeekBar) findViewById(R.id.regCredito);
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                                 // increase the textsize
                                 // with the value of progress
 
+                                //Toast.makeText(getApplicationContext(),String.valueOf(progress + 1),Toast.LENGTH_LONG).show();
                                 CreditoInicial.setText(String.valueOf(progress + 1));
                             }
 
@@ -93,7 +97,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    public void seleccionTipoCuenta(View v)
+    {
 
+        switch (tipoCuenta.getCheckedRadioButtonId())
+        {
+            case R.id.optBase:
+                Toast.makeText(this,"BASE",Toast.LENGTH_LONG).show();
+                CreditoInicial.setText("100");
+                break;
+
+            case R.id.optPremium:
+                Toast.makeText(this,"PREMIUN",Toast.LENGTH_LONG).show();
+                CreditoInicial.setText("250");
+                break;
+
+            case  R.id.optFull:
+                Toast.makeText(this,"FULL",Toast.LENGTH_LONG).show();
+                CreditoInicial.setText("500");
+                break;
+
+        }
+
+    }
 
     public void Vendedor(View v){
         SwVend = (Switch) findViewById(R.id.optEsVendedor);
