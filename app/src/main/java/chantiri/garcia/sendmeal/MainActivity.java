@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -19,11 +20,11 @@ import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-    private EditText Nombre, Contraseña, ReContraseña,Email, NroTarjeta,CodTarjeta,MMAATarjeta;
+    private EditText Nombre, Contraseña, ReContraseña, Email, NroTarjeta, CodTarjeta, MMAATarjeta, CTAalias, CTAcbu;
     private Switch SwVend;
     private LinearLayout LayCuenta;
-    private CheckBox AceptaTerminos;
     private Button Registrar;
+    private CheckBox AceptaTerminos;
     private RadioButton BtnBase, BtnFull, BtnPremiun;
     private SeekBar SeekCreditoInicial;
     private TextView CreditoInicial;
@@ -43,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         ReContraseña = (EditText) findViewById(R.id.regClave2);
         Email = (EditText) findViewById(R.id.regMail);
 
+        //elementos vendedor
+        CTAalias = (EditText) findViewById(R.id.ctaAlias);
+        CTAcbu = (EditText) findViewById(R.id.ctaCBU);
+
         //elementos cuenta usuario
         LayCuenta = (LinearLayout) findViewById(R.id.layoutCuenta);
         NroTarjeta = (EditText) findViewById(R.id.regNro);
@@ -55,10 +60,10 @@ public class MainActivity extends AppCompatActivity {
         //elemento para validar el email
         emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-       //elementos para la cuenta
-        montoBase=100;
-        montoPremium=250;
-        montoFull=500;
+        //elementos para la cuenta
+        montoBase = 100;
+        montoPremium = 250;
+        montoFull = 500;
         inicioCredito = 0;
 
         BtnBase = (RadioButton) findViewById(R.id.optBase);
@@ -75,56 +80,50 @@ public class MainActivity extends AppCompatActivity {
         SeekCreditoInicial.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             // When the progress value has changed
-                            @Override
-                            public void onProgressChanged(
-                                    SeekBar seekBar,
-                                    int progress,
+            @Override
+            public void onProgressChanged(
+                    SeekBar seekBar,
+                    int progress,
 
-                                    boolean fromUser)
-                            {
+                    boolean fromUser) {
 
-                                // increment 1 in progress and
-                                // increase the textsize
-                                // with the value of progress
+                // increment 1 in progress and
+                // increase the textsize
+                // with the value of progress
 
-                                //Toast.makeText(getApplicationContext(),String.valueOf(progress + 1),Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),String.valueOf(progress + 1),Toast.LENGTH_LONG).show();
 
-                                CreditoInicial.setText(String.valueOf( progress++));
-                            }
+                CreditoInicial.setText(String.valueOf(progress++));
+            }
 
-                            @Override
-                            public void onStartTrackingTouch(SeekBar seekBar)
-                            {
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
-                                // This method will automatically
-                                // called when the user touches the SeekBar
-                            }
+                // This method will automatically
+                // called when the user touches the SeekBar
+            }
 
-                            @Override
-                            public void onStopTrackingTouch(SeekBar seekBar)
-                            {
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
-                                // This method will automatically
-                                // called when the user
-                                // stops touching the SeekBar
-                            }
-                        });
+                // This method will automatically
+                // called when the user
+                // stops touching the SeekBar
+            }
+        });
 
 
     }
 
 
+    public void seleccionTipoCuenta(View v) {
 
-    public void seleccionTipoCuenta(View v)
-    {
-
-        switch (tipoCuenta.getCheckedRadioButtonId())
-        {
+        switch (tipoCuenta.getCheckedRadioButtonId()) {
             case R.id.optBase:
 
                 SeekCreditoInicial.setMin(100);
                 SeekCreditoInicial.setProgress(0);
-                Toast.makeText(this,"BASE",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "BASE", Toast.LENGTH_LONG).show();
                 CreditoInicial.setText(montoBase.toString());
                 inicioCredito = montoBase;
                 break;
@@ -133,15 +132,15 @@ public class MainActivity extends AppCompatActivity {
 
                 SeekCreditoInicial.setMin(250);
                 SeekCreditoInicial.setProgress(0);
-                Toast.makeText(this,"PREMIUN",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "PREMIUN", Toast.LENGTH_LONG).show();
                 CreditoInicial.setText(montoPremium.toString());
                 inicioCredito = montoPremium;
                 break;
 
-            case  R.id.optFull:
+            case R.id.optFull:
                 SeekCreditoInicial.setMin(500);
                 SeekCreditoInicial.setProgress(0);
-                Toast.makeText(this,"FULL",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "FULL", Toast.LENGTH_LONG).show();
                 CreditoInicial.setText(montoFull.toString());
                 inicioCredito = montoFull;
                 break;
@@ -150,24 +149,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void Vendedor(View v){
+    public void Vendedor(View v) {
         SwVend = (Switch) findViewById(R.id.optEsVendedor);
 
-        if(SwVend.isChecked())
-        {
+        if (SwVend.isChecked()) {
             LayCuenta.setVisibility(View.VISIBLE);
 
-        }else
-        {
+        } else {
             LayCuenta.setVisibility(View.GONE);
 
         }
 
     }
-    public void AceptaTerminos(View v){
-        if(AceptaTerminos.isChecked()) {
+
+    public void AceptaTerminos(View v) {
+        if (AceptaTerminos.isChecked()) {
             Registrar.setEnabled(true);
-            }else {
+        } else {
             Registrar.setEnabled(false);
         }
     }
@@ -180,27 +178,32 @@ public class MainActivity extends AppCompatActivity {
             if (Contraseña.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Campo Contraseña vacio", Toast.LENGTH_LONG).show();
             } else {
-                if (ReContraseña.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "Campo validar contraseña vacio", Toast.LENGTH_LONG).show();
+                if (!(Contraseña.getText().toString().equalsIgnoreCase(ReContraseña.getText().toString()))) {
+                    Toast.makeText(this, "Verifique validacion de contraseña", Toast.LENGTH_LONG).show();
                 } else {
                     if (Email.getText().toString().isEmpty()) {
                         Toast.makeText(this, "Campo E-Mail vacio", Toast.LENGTH_LONG).show();
                     } else {
                         if (Email.getText().toString().trim().matches(emailPattern)) {
-                            Toast.makeText(this, "Verifique validacion contraseña", Toast.LENGTH_LONG).show();
-                        } else
-                            if(){
-
-                            }else{
-                             Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
+                            Toast.makeText(this, "Verifique correo", Toast.LENGTH_LONG).show();
+                        } else if (SwVend.isChecked()) {
+                            if (CTAcbu.toString().isEmpty()) {
+                                Toast.makeText(this, "Verifique CtaCBU", Toast.LENGTH_LONG).show();
+                            } else {
+                                if (CTAalias.toString().isEmpty()) {
+                                    Toast.makeText(this, "Verifique CtaAlias", Toast.LENGTH_LONG).show();
+                                }
                             }
+                        } else {
+                            Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
                         }
                     }
                 }
             }
         }
-
     }
+}
+
 
 
 
