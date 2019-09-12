@@ -28,22 +28,39 @@ public class MainActivity extends AppCompatActivity {
     private SeekBar SeekCreditoInicial;
     private TextView CreditoInicial;
     private RadioGroup tipoCuenta;
+    private String emailPattern;
+    public Integer montoBase, montoPremium, montoFull, inicioCredito;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //elementos del usuario
         Nombre = (EditText) findViewById(R.id.regNombre);
         Contraseña = (EditText) findViewById(R.id.regClave);
         ReContraseña = (EditText) findViewById(R.id.regClave2);
         Email = (EditText) findViewById(R.id.regMail);
+
+        //elementos cuenta usuario
         LayCuenta = (LinearLayout) findViewById(R.id.layoutCuenta);
         NroTarjeta = (EditText) findViewById(R.id.regNro);
         CodTarjeta = (EditText) findViewById(R.id.regDigito);
         MMAATarjeta = (EditText) findViewById(R.id.regVto);
+
         AceptaTerminos = (CheckBox) findViewById(R.id.aceptaCondiciones);
         Registrar = (Button) findViewById(R.id.btnRegistrar);
+
+        //elemento para validar el email
+        emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+       //elementos para la cuenta
+        montoBase=100;
+        montoPremium=250;
+        montoFull=500;
+        inicioCredito = 0;
+
         BtnBase = (RadioButton) findViewById(R.id.optBase);
         BtnFull = (RadioButton) findViewById(R.id.optFull);
         BtnPremiun = (RadioButton) findViewById(R.id.optPremium);
@@ -55,12 +72,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Get the progress value of the SeekBar
         // using setOnSeekBarChangeListener() method
-        SeekCreditoInicial
-                .setOnSeekBarChangeListener(
-                        new SeekBar
-                                .OnSeekBarChangeListener() {
+        SeekCreditoInicial.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
-                            // When the progress value has changed
+            // When the progress value has changed
                             @Override
                             public void onProgressChanged(
                                     SeekBar seekBar,
@@ -74,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
                                 // with the value of progress
 
                                 //Toast.makeText(getApplicationContext(),String.valueOf(progress + 1),Toast.LENGTH_LONG).show();
-                                CreditoInicial.setText(String.valueOf(progress + 1));
+
+                                CreditoInicial.setText(String.valueOf( progress++));
                             }
 
                             @Override
@@ -97,24 +112,38 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
     public void seleccionTipoCuenta(View v)
     {
 
         switch (tipoCuenta.getCheckedRadioButtonId())
         {
             case R.id.optBase:
+
+                SeekCreditoInicial.setMin(100);
+                SeekCreditoInicial.setProgress(0);
                 Toast.makeText(this,"BASE",Toast.LENGTH_LONG).show();
-                CreditoInicial.setText("100");
+                CreditoInicial.setText(montoBase.toString());
+                inicioCredito = montoBase;
                 break;
 
             case R.id.optPremium:
+
+                SeekCreditoInicial.setMin(250);
+                SeekCreditoInicial.setProgress(0);
                 Toast.makeText(this,"PREMIUN",Toast.LENGTH_LONG).show();
-                CreditoInicial.setText("250");
+                CreditoInicial.setText(montoPremium.toString());
+                inicioCredito = montoPremium;
                 break;
 
             case  R.id.optFull:
+                SeekCreditoInicial.setMin(500);
+                SeekCreditoInicial.setProgress(0);
                 Toast.makeText(this,"FULL",Toast.LENGTH_LONG).show();
-                CreditoInicial.setText("500");
+                CreditoInicial.setText(montoFull.toString());
+                inicioCredito = montoFull;
                 break;
 
         }
@@ -127,46 +156,51 @@ public class MainActivity extends AppCompatActivity {
         if(SwVend.isChecked())
         {
             LayCuenta.setVisibility(View.VISIBLE);
-          //  Toast.makeText(this,"Encendido",Toast.LENGTH_LONG).show();
+
         }else
         {
             LayCuenta.setVisibility(View.GONE);
-            //Toast.makeText(this,"Apagado",Toast.LENGTH_LONG).show();
+
         }
 
     }
     public void AceptaTerminos(View v){
         if(AceptaTerminos.isChecked()) {
             Registrar.setEnabled(true);
-        }else {
+            }else {
             Registrar.setEnabled(false);
         }
     }
 
 
-    public void enviar(View v){
-        if(Nombre.getText().toString().isEmpty()) {
-            Toast.makeText(this,"Campo Nombre vacio",Toast.LENGTH_LONG).show();
-        }else {
-            if(Contraseña.getText().toString().isEmpty()) {
-                Toast.makeText(this,"Campo Contraseña vacio",Toast.LENGTH_LONG).show();
-            }else {
-                if(ReContraseña.getText().toString().isEmpty()){
-                    Toast.makeText(this,"Campo validar contraseña vacio",Toast.LENGTH_LONG).show();
-                }else {
-                    if(Email.getText().toString().isEmpty()) {
-                        Toast.makeText(this,"Campo E-Mail vacio",Toast.LENGTH_LONG).show();
-                    }else {
-                        if(ReContraseña.getText().toString()!=Contraseña.getText().toString()) {
-                            Toast.makeText(this,"Verifique validacion contraseña",Toast.LENGTH_LONG).show();
+    public void enviar(View v) {
+        if (Nombre.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Campo Nombre vacio", Toast.LENGTH_LONG).show();
+        } else {
+            if (Contraseña.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Campo Contraseña vacio", Toast.LENGTH_LONG).show();
+            } else {
+                if (ReContraseña.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "Campo validar contraseña vacio", Toast.LENGTH_LONG).show();
+                } else {
+                    if (Email.getText().toString().isEmpty()) {
+                        Toast.makeText(this, "Campo E-Mail vacio", Toast.LENGTH_LONG).show();
+                    } else {
+                        if (Email.getText().toString().trim().matches(emailPattern)) {
+                            Toast.makeText(this, "Verifique validacion contraseña", Toast.LENGTH_LONG).show();
+                        } else
+                            if(){
+
+                            }else{
+                             Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
+                            }
                         }
                     }
                 }
             }
         }
 
-        }
+    }
 
-        }
 
 

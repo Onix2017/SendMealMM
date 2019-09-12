@@ -6,12 +6,16 @@
     <string name="registro_correo">Correo Electronico</string>
     <string name="registro_tarjeta">Tarjeta de Credito</string>
     <string name="registro_credito">0</string>
-    <string name="registro_notificar">Notificar por Correo Electrónico</string>
+    <string name="registro_notificar">Notificar por correo Electronico </string>
+    <string name="registro_notificarSi">Enviar notificaciones al mail </string>
+    <string name="registro_notificarNo"> No enviar notificaciones al mail</string>
     <string name="registro_vendedor">Es Vendedor</string>
     <string name="registro_ctaalias">Alias CBU</string>
     <string name="registro_ctaalia">CBU</string>
     <string name="app_name">SendMeal</string>
     <string name="numTarjeta">1234567890</string>
+    <string name="registro_credInicial">Credito Inicial</string>
 
-
+    <string name="start">0</string>
+    <string name="stop">1500</string>
 </resources>

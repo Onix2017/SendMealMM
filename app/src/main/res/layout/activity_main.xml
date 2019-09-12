@@ -162,17 +162,31 @@
 
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/txtCredInicial"
-        android:layout_width="109dp"
-        android:layout_height="wrap_content"
-        android:text="@string/registro_credito"
-        android:textColor="@color/etiqueta_" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp">
+
+        <TextView
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/etiqueta_"
+            android:text="@string/registro_credInicial" />
+
+        <TextView
+            android:id="@+id/txtCredInicial"
+            android:layout_width="109dp"
+            android:layout_height="wrap_content"
+            android:text="@string/registro_credito"
+            android:textColor="@color/etiqueta_"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <SeekBar
         android:id="@+id/regCredito"
         android:layout_width="match_parent"
         android:layout_height="31dp"
+        android:min="0"
         android:max="1500" />
 
     <TextView
@@ -184,7 +198,8 @@
         android:id="@+id/optNotificarMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NO ENVIAR NOTIFICACIONES AL MAIL" />
+        android:textOff="@string/registro_notificarNo"
+        android:textOn="@string/registro_notificarSi" />
 
     <Switch
         android:id="@+id/optEsVendedor"
