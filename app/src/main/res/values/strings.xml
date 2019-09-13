@@ -5,7 +5,7 @@
     <string name="registro_clave2">Repetir Clave</string>
     <string name="registro_correo">Correo Electronico</string>
     <string name="registro_tarjeta">Tarjeta de Credito</string>
-    <string name="registro_credito">0</string>
+    <string name="registro_credito">100</string>
     <string name="registro_notificar">Notificar por correo Electronico </string>
     <string name="registro_notificarSi">Enviar notificaciones al mail </string>
     <string name="registro_notificarNo"> No enviar notificaciones al mail</string>

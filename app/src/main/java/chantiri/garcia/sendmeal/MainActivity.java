@@ -2,10 +2,8 @@ package chantiri.garcia.sendmeal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.view.Gravity;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,6 +15,11 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -75,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         SeekCreditoInicial = (SeekBar) findViewById(R.id.regCredito);
         CreditoInicial = (TextView) findViewById(R.id.txtCredInicial);
 
+        SwVend = (Switch) findViewById(R.id.optEsVendedor);
+
         // Get the progress value of the SeekBar
         // using setOnSeekBarChangeListener() method
         SeekCreditoInicial.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -123,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
                 SeekCreditoInicial.setMin(100);
                 SeekCreditoInicial.setProgress(0);
-                Toast.makeText(this, "BASE", Toast.LENGTH_LONG).show();
+               // Toast.makeText(this, "BASE", Toast.LENGTH_LONG).show();
                 CreditoInicial.setText(montoBase.toString());
                 inicioCredito = montoBase;
                 break;
@@ -132,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
                 SeekCreditoInicial.setMin(250);
                 SeekCreditoInicial.setProgress(0);
-                Toast.makeText(this, "PREMIUN", Toast.LENGTH_LONG).show();
+               // Toast.makeText(this, "PREMIUN", Toast.LENGTH_LONG).show();
                 CreditoInicial.setText(montoPremium.toString());
                 inicioCredito = montoPremium;
                 break;
@@ -140,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.optFull:
                 SeekCreditoInicial.setMin(500);
                 SeekCreditoInicial.setProgress(0);
-                Toast.makeText(this, "FULL", Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "FULL", Toast.LENGTH_LONG).show();
                 CreditoInicial.setText(montoFull.toString());
                 inicioCredito = montoFull;
                 break;
@@ -150,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Vendedor(View v) {
-        SwVend = (Switch) findViewById(R.id.optEsVendedor);
 
         if (SwVend.isChecked()) {
             LayCuenta.setVisibility(View.VISIBLE);
@@ -171,38 +175,117 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void enviar(View v) {
-        if (Nombre.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Campo Nombre vacio", Toast.LENGTH_LONG).show();
-        } else {
-            if (Contraseña.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Campo Contraseña vacio", Toast.LENGTH_LONG).show();
-            } else {
-                if (!(Contraseña.getText().toString().equalsIgnoreCase(ReContraseña.getText().toString()))) {
-                    Toast.makeText(this, "Verifique validacion de contraseña", Toast.LENGTH_LONG).show();
-                } else {
-                    if (Email.getText().toString().isEmpty()) {
-                        Toast.makeText(this, "Campo E-Mail vacio", Toast.LENGTH_LONG).show();
-                    } else {
-                        if (Email.getText().toString().trim().matches(emailPattern)) {
-                            Toast.makeText(this, "Verifique correo", Toast.LENGTH_LONG).show();
-                        } else if (SwVend.isChecked()) {
-                            if (CTAcbu.toString().isEmpty()) {
-                                Toast.makeText(this, "Verifique CtaCBU", Toast.LENGTH_LONG).show();
-                            } else {
-                                if (CTAalias.toString().isEmpty()) {
-                                    Toast.makeText(this, "Verifique CtaAlias", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        } else {
-                            Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
-                        }
+    private boolean validarEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
+    }
+
+    private boolean validarFechaTarg(String fecha) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(fecha).matches();
+    }
+
+    private boolean CompararFechaTarj(String fecha)
+    {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+
+        Date date = new Date();
+
+        String fechaActual = dateFormat.format(date);
+
+        //Toast.makeText(this, fecha, Toast.LENGTH_LONG).show();
+        int añoA = Integer.parseInt(fechaActual.substring(8,10));
+        int mesA = Integer.parseInt(fechaActual.substring(3,5));
+        int año = Integer.parseInt(fecha.substring(3,5));
+        int mes = Integer.parseInt(fecha.substring(0,2));
+        int difM = mes-mesA;
+        int difA = año - añoA;
+
+        if ((difA == 0) && (difM > 2))
+        {
+            return  true;
+        }
+        else
+        {
+            if (difA > 1)
+            {
+                return true;
+            }
+            else
+                {
+                    if (((12-mesA) > 2) && ((mes-mesA) > -9))
+                    {
+                        return true;
                     }
                 }
+        }
+        return false;
+    }
+
+    public void enviar(View v)
+    {
+        if (Nombre.getText().toString().isEmpty())
+        {
+            Toast.makeText(this, "Campo Nombre vacio", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (Contraseña.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Campo Contraseña vacio", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (!(Contraseña.getText().toString().equalsIgnoreCase(ReContraseña.getText().toString())))
+        {
+            Toast.makeText(this, "Verifique validacion de contraseña", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (Email.getText().toString().isEmpty())
+        {
+            Toast.makeText(this, "Campo E-Mail vacio", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (!validarEmail(Email.getText().toString()))
+        {
+            Toast.makeText(this, "Verifique correo", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (NroTarjeta.getText().toString().isEmpty() || CodTarjeta.getText().toString().isEmpty() || MMAATarjeta.getText().toString().isEmpty())
+        {
+            Toast.makeText(this, "Verificar datos Tarjeta de Crédito", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (!MMAATarjeta.getText().toString().matches("\\d{2}/\\d{2}") & (CompararFechaTarj(MMAATarjeta.getText().toString())))
+        {
+            Toast.makeText(this, "Verificar fecha Tarjeta de Crédito", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (SwVend.isChecked())
+        {
+            if (CTAcbu.toString().isEmpty())
+            {
+                Toast.makeText(this, "Verifique CBU", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            if (CTAalias.toString().isEmpty())
+            {
+                Toast.makeText(this, "Verifique Alias", Toast.LENGTH_LONG).show();
+                return;
             }
         }
+
+        Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_LONG).show();
     }
 }
+
+
+
 
 
 

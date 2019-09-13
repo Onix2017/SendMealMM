@@ -116,11 +116,11 @@
             android:layout_width="102dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:digits="1234567890-"
+            android:digits="1234567890/"
             android:ems="10"
             android:inputType="textPersonName"
             android:maxLength="5"
-            android:hint="MM-AA" />
+            android:hint="MM/AA" />
 
     </LinearLayout>
 
@@ -128,6 +128,7 @@
         android:id="@+id/tipoCuentaGrp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:checkedButton="@id/optBase"
         android:orientation="horizontal">
 
         <TextView
@@ -211,9 +212,9 @@
     <LinearLayout
         android:id="@+id/layoutCuenta"
         android:layout_width="match_parent"
-        android:layout_height="92dp"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="match_parent"
@@ -223,7 +224,7 @@
         <EditText
             android:id="@+id/ctaAlias"
             android:layout_width="match_parent"
-            android:layout_height="28dp"
+            android:layout_height="match_parent"
             android:ems="10"
             android:inputType="textPersonName" />
 
@@ -235,7 +236,7 @@
         <EditText
             android:id="@+id/ctaCBU"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:ems="10"
             android:inputType="textPersonName" />
 
@@ -244,17 +245,17 @@
     <CheckBox
         android:id="@+id/aceptaCondiciones"
         android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:onClick="AceptaTerminos"
+        android:layout_height="wrap_content"
         android:checked="false"
+        android:onClick="AceptaTerminos"
         android:text='"Acepta terminos y condiciones"' />
 
     <Button
         android:id="@+id/btnRegistrar"
         android:layout_width="match_parent"
-        android:layout_height="63dp"
-        android:onClick="enviar"
+        android:layout_height="43dp"
         android:enabled="false"
+        android:onClick="enviar"
         android:text="Registrar" />
 
 </LinearLayout>
