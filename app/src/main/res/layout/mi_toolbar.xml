@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar
+<android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:title="Menu Principal"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:minHeight="?attr/actionBarSize"
@@ -11,4 +10,4 @@
     android:theme="@style/AppTheme"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
-</androidx.appcompat.widget.Toolbar>
+</android.support.v7.widget.Toolbar>
