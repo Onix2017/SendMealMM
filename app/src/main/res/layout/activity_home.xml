@@ -16,6 +16,10 @@ android:layout_width="match_parent" android:layout_height="match_parent">
     android:layout_height="wrap_content"
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true"
-    android:text="Bienvenidos"
+    android:text="Bienvenido al mejor servicio de pedido de comidas On-Line"
+    android:textColor="@color/colorPrimary"
+    android:textSize="25dp"
+    android:textAlignment="center"
+    android:textAppearance="@style/Theme.AppCompat.Light.Dialog"
     ></TextView>
 </RelativeLayout>

@@ -16,6 +16,12 @@
     <string name="numTarjeta">1234567890</string>
     <string name="registro_credInicial">Credito Inicial</string>
 
+
+    <string name="Item_Registrame">Registrarme</string>
+    <string name="Item_Crear">Crear Item</string>
+    <string name="Item_Listar">Listar Items</string>
+
+
     <string name="start">0</string>
     <string name="stop">1500</string>
 </resources>
