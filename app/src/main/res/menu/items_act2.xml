@@ -7,23 +7,21 @@
             android:title="menu_opcion1"
             android:actionLayout="@drawable/shopping"
             android:orderInCategory="3"
-            app:showAsAction="ifRoom">
+            app:showAsAction="never">
 
         </item>
 
         <item   android:id="@+id/mnuOpt2"
             android:title="menu_opcion2"
-            android:icon="@drawable/shopping"
             android:orderInCategory="1"
-            app:showAsAction="ifRoom">
+            app:showAsAction="never">
 
         </item>
 
         <item   android:id="@+id/mnuOpt5"
             android:title="menu_opcion5"
-            android:icon="@drawable/shopping"
             android:orderInCategory="2"
-            app:showAsAction="ifRoom">
+            app:showAsAction="never">
 
         </item>
     </menu>
