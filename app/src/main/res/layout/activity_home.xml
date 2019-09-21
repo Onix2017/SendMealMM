@@ -16,7 +16,7 @@ android:layout_width="match_parent" android:layout_height="match_parent">
     android:layout_height="wrap_content"
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true"
-    android:text="Bienvenido al mejor servicio de pedido de comidas On-Line"
+    android:text="Bienvenido al mejor servicio de pedido de comidas On-Line 8"
     android:textColor="@color/colorPrimary"
     android:textSize="25dp"
     android:textAlignment="center"
