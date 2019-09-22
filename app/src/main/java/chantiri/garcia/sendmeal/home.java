@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class home extends AppCompatActivity {
 
     private Toolbar mi_Toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +34,7 @@ public class home extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.mnuOpt1:
                // Toast.makeText(this, "Opcion Registrarse", Toast.LENGTH_LONG).show();
-                Intent i1 = new Intent(this, TarjetaCredito.class);
+                Intent i1 = new Intent(this, MainActivity.class);
                 startActivity(i1);
                 return true;
         }

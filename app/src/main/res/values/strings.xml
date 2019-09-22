@@ -21,6 +21,7 @@
     <string name="Item_Crear">Crear Item</string>
     <string name="Item_Listar">Listar Items</string>
 
+    <string name="Item_Volver">Home</string>
 
     <string name="start">0</string>
     <string name="stop">1500</string>
