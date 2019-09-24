@@ -37,6 +37,11 @@ public class home extends AppCompatActivity {
                 Intent i1 = new Intent(this, MainActivity.class);
                 startActivity(i1);
                 return true;
+            case R.id.mnuOpt2:
+                // Toast.makeText(this, "Opcion Plato", Toast.LENGTH_LONG).show();
+                Intent i2 = new Intent(this, CrearItem.class);
+                startActivity(i2);
+                return true;
         }
         return true;
     }

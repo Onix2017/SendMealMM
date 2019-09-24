@@ -137,14 +137,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
-
-        switch (item.getItemId()){
-            case R.id.volver:
-                // Toast.makeText(this, "Opcion Registrarse", Toast.LENGTH_LONG).show();
-                Intent i1 = new Intent(this, home.class);
-                startActivity(i1);
-                return true;
-        }
+        // Toast.makeText(this, "Opcion Registrarse", Toast.LENGTH_LONG).show();
+        Intent i1 = new Intent(this, home.class);
+        startActivity(i1);
         return true;
     }
 
