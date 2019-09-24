@@ -16,6 +16,15 @@
     <string name="numTarjeta">1234567890</string>
     <string name="registro_credInicial">Credito Inicial</string>
 
+    <string name="alta_plato_id">ID Plato</string>
+    <string name="alta_plato_nombre">Nombre</string>
+    <string name="alta_plato_descripcion">Descripción</string>
+    <string name="alta_plato_precio">Precio</string>
+    <string name="alta_plato_calorias">Calorias</string>
+    <string name="alta_plato_guardar">Guardar</string>
+
+
+
 
     <string name="Item_Registrame">Registrarme</string>
     <string name="Item_Crear">Crear Item</string>
