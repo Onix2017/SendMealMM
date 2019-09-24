@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".TarjetaCredito">
+        <activity android:name=".CrearItem">
         </activity>
     </application>
 

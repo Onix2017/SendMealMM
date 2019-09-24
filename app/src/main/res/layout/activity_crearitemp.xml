@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrearItem">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,15 +20,96 @@
         />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Plato"
-        android:textColor="@color/colorPrimary"
-        android:textSize="25dp"
-        android:textAlignment="center"
-        android:textAppearance="@style/Theme.AppCompat.Light.Dialog"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        ></TextView>
+        android:text="Alta Plato"
+        android:textColor="@color/titulo_"
+        android:textSize="@dimen/titulo"
+        android:textStyle="bold" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Id Plato"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+    <EditText
+        android:id="@+id/etPlatoId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre Plato"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+    <EditText
+        android:id="@+id/etPlatoNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/tvDescricion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+
+    <EditText
+        android:id="@+id/etPlatoDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/tvPlatoPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Precio Plato"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+
+    <EditText
+        android:id="@+id/etPlatoPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/tvPlatoCaloria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Caloría"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+
+    <EditText
+        android:id="@+id/etPlatoCaloria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnGuardarPlato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:onClick="GuardarPlato"
+        android:text="Guardar Plato" />
+
+</LinearLayout>
+</ScrollView>
