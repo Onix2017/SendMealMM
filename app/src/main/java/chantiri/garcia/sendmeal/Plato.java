@@ -1,6 +1,7 @@
 package chantiri.garcia.sendmeal;
 
 public class Plato {
+    
     Integer id_plato;
     String tituto_plato;
     String descripcion_plato;

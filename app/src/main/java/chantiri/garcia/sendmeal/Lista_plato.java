@@ -21,8 +21,7 @@ public class Lista_plato extends AppCompatActivity {
         glm = new GridLayoutManager(this, 2);
         rvplato.setLayoutManager(glm);
         adapter = new Adaptador_lista_plato(dataSet());
-        Adaptador_lista_plato.setAdapter(adapter);
+        Adaptador_lista_plato..setAdapter(adapter);
     }
 
-    }
 }
