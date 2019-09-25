@@ -10,10 +10,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class home extends AppCompatActivity {
 
     private Toolbar mi_Toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,8 @@ public class home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         mi_Toolbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(mi_Toolbar);
+
+        //listaPlatos = new ArrayList<Plato>();
     }
 
     public boolean onCreateOptionsMenu(Menu menu){

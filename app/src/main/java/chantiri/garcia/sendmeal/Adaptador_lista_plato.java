@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Adaptador_lista_plato extends RecyclerView.Adapter<PlatoViewHolder> {
 
@@ -37,6 +38,10 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<PlatoViewHolder>
 
         return data.size();
     }
+    List<Plato> platos;
 
+    Adaptador_lista_plato(List<Plato> platos){
+        this.platos = platos;
+    }
 
 }

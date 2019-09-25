@@ -27,11 +27,13 @@ public class Lista_plato extends AppCompatActivity {
       LinearLayoutManager llm = new LinearLayoutManager(this);
       llm.setOrientation(LinearLayoutManager.VERTICAL);
       rvplato.setLayoutManager(llm);
-      */
+
       rlm = new LinearLayoutManager(this);
       rvplato.setLayoutManager(rlm);
       adapter = new Adaptador_lista_plato(dataSet());
-      rvplato.setAdapter(adapter);
+      rvplato.setAdapter(adapter);*/
+        Adaptador_lista_plato adapter = new Adaptador_lista_plato(dataSet());
+        rvplato.setAdapter(adapter);
     }
     private ArrayList<Plato> dataSet() {
         ArrayList<Plato> data = new ArrayList<>();
