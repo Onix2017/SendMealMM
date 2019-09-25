@@ -1,10 +1,9 @@
 package chantiri.garcia.sendmeal;
 
 public class Plato {
-    
+
     Integer id_plato;
-    String tituto_plato;
-    String descripcion_plato;
+    String tituto_plato, descripcion_plato;
     Double precio_plato;
     Integer calorias_plato;
 
@@ -15,6 +14,7 @@ public class Plato {
         this.precio_plato = precio_plato;
         this.calorias_plato = calorias_plato;
     }
+
 
     public Integer getId_plato() {
         return id_plato;

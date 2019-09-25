@@ -37,9 +37,9 @@ public class Lista_plato extends AppCompatActivity {
     }
     private ArrayList<Plato> dataSet() {
         ArrayList<Plato> data = new ArrayList<>();
-        data.add(new Plato(1, "Imagine Dragons","fgdg",12.90,12));
-        data.add(new Plato(1, "Imagine Dragons","fgdg",12.90,12));
-        data.add(new Plato(1, "Imagine Dragons","fgdg",12.90,12));
+       // data.add(new Plato("1", "Imagine Dragons","fgdg","12.90","12"));
+      data.add(new Plato(1, "Imagine Dragons","fgdg",12.90,12));
+      //  data.add(new Plato(1, "Imagine Dragons","fgdg",12.90,12));
 
         return data;
     }

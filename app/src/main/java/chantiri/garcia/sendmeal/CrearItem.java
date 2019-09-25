@@ -13,17 +13,23 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.ArrayList;
+
+import static android.app.PendingIntent.getActivity;
+
 public class CrearItem extends AppCompatActivity {
 
     private EditText idPlato, NombrePlato, DescPlato, precioPlato, CaloriaPlato;
+    private Button BtnGPlato;
 
     private Toolbar mi_Toolbar;
 
-    private  Global GlobalPlato = (Global) getApplicationContext();
+    //private  Global GlobalPlato;// = (Global) this.getApplicationContext();
 
     @Override
 
@@ -36,12 +42,16 @@ public class CrearItem extends AppCompatActivity {
         setSupportActionBar(mi_Toolbar);
 
 
-      /*  idPlato = (EditText) findViewById(R.id.etPlatoId);
+        idPlato = (EditText) findViewById(R.id.etPlatoId);
         NombrePlato = (EditText) findViewById(R.id.etPlatoNombre);
         DescPlato = (EditText) findViewById(R.id.etPlatoDescripcion);
         precioPlato = (EditText) findViewById(R.id.etPlatoPrecio);
-        CaloriaPlato = (EditText) findViewById(R.id.etPlatoCaloria);*/
+        CaloriaPlato = (EditText) findViewById(R.id.etPlatoCaloria);
+
+        BtnGPlato = (Button) findViewById(R.id.btnGuardarPlato);
+
     }
+
 
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -62,6 +72,11 @@ public class CrearItem extends AppCompatActivity {
 
         Plato nuevoP = new Plato(Integer.parseInt(idPlato.toString()), NombrePlato.toString(), DescPlato.toString(), Double.parseDouble(precioPlato.toString()), Integer.parseInt(CaloriaPlato.toString()));
 
-        GlobalPlato.AgregarPlatos(nuevoP);
+        Global.listaPlatos.add(nuevoP);
+
+
+       // ArrayList<Plato> pp = GlobalPlato.getListaPlatos();
+
+        Toast.makeText(this, String.valueOf(Global.listaPlatos.size()), Toast.LENGTH_LONG).show();
     }
 }
