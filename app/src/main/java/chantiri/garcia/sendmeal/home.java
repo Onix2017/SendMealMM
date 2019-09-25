@@ -38,9 +38,14 @@ public class home extends AppCompatActivity {
                 startActivity(i1);
                 return true;
             case R.id.mnuOpt2:
-                Toast.makeText(this, "Opcion Crear Item", Toast.LENGTH_LONG).show();
+              //  Toast.makeText(this, "Opcion Crear Item", Toast.LENGTH_LONG).show();
                 Intent i2 = new Intent(this, CrearItem.class);
                 startActivity(i2);
+                return true;
+            case R.id.mnuOpt3:
+                //Toast.makeText(this, "Opcion Crear Item", Toast.LENGTH_LONG).show();
+                Intent i3 = new Intent(this, Lista_plato.class);
+                startActivity(i3);
                 return true;
         }
         return true;

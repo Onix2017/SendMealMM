@@ -21,6 +21,7 @@ public class Plato {
     }
 
     public void setId_plato(Integer id_plato) {
+
         this.id_plato = id_plato;
     }
 

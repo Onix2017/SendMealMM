@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_plato.PlatoViewHolder> {
+public class Adaptador_lista_plato extends RecyclerView.Adapter<PlatoViewHolder> {
 
     private ArrayList<Plato> data;
 
     public Adaptador_lista_plato(ArrayList<Plato> data) {
+
         this.data = data;
     }
 
@@ -33,21 +34,9 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
 
     @Override
     public int getItemCount() {
+
         return data.size();
     }
 
-    class PlatoViewHolder extends RecyclerView.ViewHolder{
-
-        ImageView imgPlato;
-        TextView tituto_plato;
-        TextView precio_plato;
-
-        public PlatoViewHolder(View itemView) {
-            super(itemView);
-            imgPlato = (ImageView) itemView.findViewById(R.id.foto_plato);
-            tituto_plato = (TextView) itemView.findViewById(R.id.titulo_plato);
-            precio_plato = (TextView) itemView.findViewById(R.id.precio_plato);
-        }
-    }
 
 }

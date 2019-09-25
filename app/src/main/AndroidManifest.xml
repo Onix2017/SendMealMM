@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".CrearItem">
         </activity>
+        <activity android:name=".Lista_plato">
+        </activity>
     </application>
 
 </manifest>
