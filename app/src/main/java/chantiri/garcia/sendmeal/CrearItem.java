@@ -71,16 +71,42 @@ public class CrearItem extends AppCompatActivity {
     public void GuardarPlato(View view) {
 
 
-        Integer idp = Integer.parseInt(idPlato.getText().toString());
-        Double preciop = Double.parseDouble(precioPlato.getText().toString());
-        Integer caloriop = Integer.parseInt(CaloriaPlato.getText().toString());
+        if (idPlato.getText().toString().isEmpty())
+        {
+            Toast.makeText(this, "Campo ID vacio", Toast.LENGTH_LONG).show();
+        }else{
+            if (NombrePlato.getText().toString().isEmpty())
+            {
+                Toast.makeText(this, "Campo Nombre vacio", Toast.LENGTH_LONG).show();
+            }else{
+                if (DescPlato.getText().toString().isEmpty())
+                {
+                    Toast.makeText(this, "Campo Descripcion vacio", Toast.LENGTH_LONG).show();
+                }else{
+                    if (precioPlato.getText().toString().isEmpty())
+                    {
+                        Toast.makeText(this, "Campo Precio vacio", Toast.LENGTH_LONG).show();
+                    }else{
+                        if (CaloriaPlato.getText().toString().isEmpty())
+                        {
+                            Toast.makeText(this, "Campo Calorias vacio", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            Integer idp = Integer.parseInt(idPlato.getText().toString());
+                            Double preciop = Double.parseDouble(precioPlato.getText().toString());
+                            Integer caloriop = Integer.parseInt(CaloriaPlato.getText().toString());
+                            Plato nuevoP = new Plato(idp, NombrePlato.getText().toString(), DescPlato.getText().toString(), preciop, caloriop);
 
-        Plato nuevoP = new Plato(idp, NombrePlato.getText().toString(), DescPlato.getText().toString(), preciop, caloriop);
+                            Global.listaPlatos.add(nuevoP);
+                            this.finish();
+                            //Toast.makeText(this, String.valueOf(idPlato.getText().toString()), Toast.LENGTH_LONG).show();
+                            //Toast.makeText(this, String.valueOf(Global.listaPlatos.size()), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+            }
 
-        Global.listaPlatos.add(nuevoP);
-
-        this.finish();
-        //Toast.makeText(this, String.valueOf(idPlato.getText().toString()), Toast.LENGTH_LONG).show();
-        //Toast.makeText(this, String.valueOf(Global.listaPlatos.size()), Toast.LENGTH_LONG).show();
+        }
     }
+
 }
