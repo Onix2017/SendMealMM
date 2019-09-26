@@ -70,13 +70,15 @@ public class CrearItem extends AppCompatActivity {
 
     public void GuardarPlato(View view) {
 
-        Plato nuevoP = new Plato(Integer.parseInt(idPlato.toString()), NombrePlato.toString(), DescPlato.toString(), Double.parseDouble(precioPlato.toString()), Integer.parseInt(CaloriaPlato.toString()));
+
+        Integer idp = Integer.parseInt(idPlato.getText().toString());
+        Double preciop = Double.parseDouble(precioPlato.getText().toString());
+        Integer caloriop = Integer.parseInt(CaloriaPlato.getText().toString());
+
+        Plato nuevoP = new Plato(idp, NombrePlato.toString(), DescPlato.toString(), preciop, caloriop);
 
         Global.listaPlatos.add(nuevoP);
-
-
-       // ArrayList<Plato> pp = GlobalPlato.getListaPlatos();
-
+        Toast.makeText(this, String.valueOf(idPlato.getText().toString()), Toast.LENGTH_LONG).show();
         Toast.makeText(this, String.valueOf(Global.listaPlatos.size()), Toast.LENGTH_LONG).show();
     }
 }
