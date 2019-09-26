@@ -99,8 +99,6 @@ public class CrearItem extends AppCompatActivity {
 
                             Global.listaPlatos.add(nuevoP);
                             this.finish();
-                            //Toast.makeText(this, String.valueOf(idPlato.getText().toString()), Toast.LENGTH_LONG).show();
-                            //Toast.makeText(this, String.valueOf(Global.listaPlatos.size()), Toast.LENGTH_LONG).show();
                         }
                     }
                 }
