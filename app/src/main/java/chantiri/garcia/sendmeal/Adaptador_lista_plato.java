@@ -29,7 +29,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
     @Override
     public void onBindViewHolder(PlatoViewHolder holder, int position) {
         Plato plato = data.get(position);
-        holder.imgPlato.setImageResource(R.drawable.shopping);
+        holder.imgPlato.setImageResource(R.drawable.ic_restaurant_black_24dp);
         holder.tituto_plato.setText(plato.getTituto_plato());
         holder.precio_plato.setText(plato.getPrecio_plato().toString());
     }
