@@ -62,8 +62,8 @@ public class CrearItem extends AppCompatActivity {
 
    public boolean onOptionsItemSelected(MenuItem item){
         // Toast.makeText(this, "Opcion Registrarse", Toast.LENGTH_LONG).show();
-        Intent i1 = new Intent(this, home.class);
-        startActivity(i1);
+
+       this.finish();
         return true;
     }
 
@@ -75,10 +75,12 @@ public class CrearItem extends AppCompatActivity {
         Double preciop = Double.parseDouble(precioPlato.getText().toString());
         Integer caloriop = Integer.parseInt(CaloriaPlato.getText().toString());
 
-        Plato nuevoP = new Plato(idp, NombrePlato.toString(), DescPlato.toString(), preciop, caloriop);
+        Plato nuevoP = new Plato(idp, NombrePlato.getText().toString(), DescPlato.getText().toString(), preciop, caloriop);
 
         Global.listaPlatos.add(nuevoP);
-        Toast.makeText(this, String.valueOf(idPlato.getText().toString()), Toast.LENGTH_LONG).show();
-        Toast.makeText(this, String.valueOf(Global.listaPlatos.size()), Toast.LENGTH_LONG).show();
+
+        this.finish();
+        //Toast.makeText(this, String.valueOf(idPlato.getText().toString()), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, String.valueOf(Global.listaPlatos.size()), Toast.LENGTH_LONG).show();
     }
 }

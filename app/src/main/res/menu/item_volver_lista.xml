@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Lista_plato">
+
+    <item   android:id="@+id/volver"
+        android:title="@string/Item_Volver"
+        android:actionLayout="@drawable/shopping"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_chevron_left_black_24dp"
+        app:showAsAction="always">
+    </item>
+
+</menu>

@@ -6,12 +6,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adaptador_lista_plato extends RecyclerView.Adapter<PlatoViewHolder> {
+public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_plato.PlatoViewHolder> {
 
     private ArrayList<Plato> data;
 
@@ -38,10 +39,27 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<PlatoViewHolder>
 
         return data.size();
     }
-    List<Plato> platos;
-
-    Adaptador_lista_plato(List<Plato> platos){
-        this.platos = platos;
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
     }
+
+    public static class PlatoViewHolder extends RecyclerView.ViewHolder{
+        CardView cv;
+        ImageView imgPlato;
+        TextView tituto_plato;
+        TextView precio_plato;
+
+        public PlatoViewHolder(View itemView) {
+            super(itemView);
+            cv = (CardView)itemView.findViewById(R.id.cv);
+            imgPlato = (ImageView) itemView.findViewById(R.id.foto_plato);
+            tituto_plato = (TextView) itemView.findViewById(R.id.titulo_plato);
+            precio_plato = (TextView) itemView.findViewById(R.id.precio_plato);
+        }
+
+
+    }
+
 
 }

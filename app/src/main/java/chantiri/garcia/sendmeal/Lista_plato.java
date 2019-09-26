@@ -1,47 +1,54 @@
 package chantiri.garcia.sendmeal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
 public class Lista_plato extends AppCompatActivity {
 
     private RecyclerView rvplato;
-    private RecyclerView.LayoutManager rlm;
-    private RecyclerView.LayoutManager adapter;
+    private LinearLayoutManager rlm;
+    private Adaptador_lista_plato adapter;
+
+    private Toolbar mi_Toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_plato);
 
+        mi_Toolbar = (Toolbar) findViewById(R.id.appbar);
+        setSupportActionBar(mi_Toolbar);
 
-
-     /* rvplato = (RecyclerView) findViewById(R.id.cv);
-      rvplato.setHasFixedSize(true);
-      LinearLayoutManager llm = new LinearLayoutManager(this);
-      llm.setOrientation(LinearLayoutManager.VERTICAL);
-      rvplato.setLayoutManager(llm);
+      rvplato = (RecyclerView) findViewById(R.id.rv_platos);
 
       rlm = new LinearLayoutManager(this);
       rvplato.setLayoutManager(rlm);
-      adapter = new Adaptador_lista_plato(dataSet());
-      rvplato.setAdapter(adapter);*/
-        Adaptador_lista_plato adapter = new Adaptador_lista_plato(dataSet());
-        rvplato.setAdapter(adapter);
+      adapter = new Adaptador_lista_plato(Global.listaPlatos);
+      rvplato.setAdapter(adapter);
     }
-    private ArrayList<Plato> dataSet() {
-        ArrayList<Plato> data = new ArrayList<>();
-       // data.add(new Plato("1", "Imagine Dragons","fgdg","12.90","12"));
-      data.add(new Plato(1, "Imagine Dragons","fgdg",12.90,12));
-      //  data.add(new Plato(1, "Imagine Dragons","fgdg",12.90,12));
 
-        return data;
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.item_volver_lista,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        // Toast.makeText(this, "Opcion Registrarse", Toast.LENGTH_LONG).show();
+        Intent i1 = new Intent(this, home.class);
+        startActivity(i1);
+        return true;
     }
 
 }

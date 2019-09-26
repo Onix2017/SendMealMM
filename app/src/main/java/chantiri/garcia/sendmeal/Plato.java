@@ -26,14 +26,17 @@ public class Plato {
     }
 
     public String getTituto_plato() {
+
         return tituto_plato;
     }
 
     public void setTituto_plato(String tituto_plato) {
+
         this.tituto_plato = tituto_plato;
     }
 
     public String getDescripcion_plato() {
+
         return descripcion_plato;
     }
 
@@ -46,14 +49,17 @@ public class Plato {
     }
 
     public void setPrecio_plato(Double precio_plato) {
+
         this.precio_plato = precio_plato;
     }
 
-    public Integer getCalorias_plato() {
+    public Integer getCalorias_plato()
+    {
         return calorias_plato;
     }
 
-    public void setCalorias_plato(Integer calorias_plato) {
+    public void setCalorias_plato(Integer calorias_plato)
+    {
         this.calorias_plato = calorias_plato;
     }
 }
