@@ -1,5 +1,6 @@
 package chantiri.garcia.sendmeal;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +16,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -33,7 +35,7 @@ public class CrearItem extends AppCompatActivity {
 
     @Override
 
-    protected void onCreate (Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crearitemp);
@@ -53,17 +55,16 @@ public class CrearItem extends AppCompatActivity {
     }
 
 
-
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.item_volver_plato,menu);
+        inflater.inflate(R.menu.item_volver_plato, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-   public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         // Toast.makeText(this, "Opcion Registrarse", Toast.LENGTH_LONG).show();
 
-       this.finish();
+        this.finish();
         return true;
     }
 
@@ -71,27 +72,21 @@ public class CrearItem extends AppCompatActivity {
     public void GuardarPlato(View view) {
 
 
-        if (idPlato.getText().toString().isEmpty())
-        {
+        if (idPlato.getText().toString().isEmpty()) {
             Toast.makeText(this, "Campo ID vacio", Toast.LENGTH_LONG).show();
-        }else{
-            if (NombrePlato.getText().toString().isEmpty())
-            {
+        } else {
+            if (NombrePlato.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Campo Nombre vacio", Toast.LENGTH_LONG).show();
-            }else{
-                if (DescPlato.getText().toString().isEmpty())
-                {
+            } else {
+                if (DescPlato.getText().toString().isEmpty()) {
                     Toast.makeText(this, "Campo Descripcion vacio", Toast.LENGTH_LONG).show();
-                }else{
-                    if (precioPlato.getText().toString().isEmpty())
-                    {
+                } else {
+                    if (precioPlato.getText().toString().isEmpty()) {
                         Toast.makeText(this, "Campo Precio vacio", Toast.LENGTH_LONG).show();
-                    }else{
-                        if (CaloriaPlato.getText().toString().isEmpty())
-                        {
+                    } else {
+                        if (CaloriaPlato.getText().toString().isEmpty()) {
                             Toast.makeText(this, "Campo Calorias vacio", Toast.LENGTH_LONG).show();
-                        }
-                        else{
+                        } else {
                             Integer idp = Integer.parseInt(idPlato.getText().toString());
                             Double preciop = Double.parseDouble(precioPlato.getText().toString());
                             Integer caloriop = Integer.parseInt(CaloriaPlato.getText().toString());
@@ -106,5 +101,19 @@ public class CrearItem extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    protected void onActivityResult(int intents, int codigo, @Nullable Intent data) {
+
+    }
+
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intentResultado = new Intent();
+            setResult(Activity.RESULT_OK, intentResultado);
+            finish();
+        }
+    };
 
 }

@@ -1,5 +1,6 @@
 package chantiri.garcia.sendmeal;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -100,7 +101,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
 
                 Intent i3 = new Intent(context, CrearItem.class);
                 i3.putExtra("id_Plato",id_plato.getText());
-                context.startActivity(i3);
+                    ((Activity)context).startActivityForResult(i3,1);
                     break;
 
                 case R.id.btnElimnar:
