@@ -44,6 +44,42 @@
                 android:layout_below="@+id/titulo_plato"
                 />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/id_plato"
+                android:layout_toRightOf="@+id/titulo_plato"
+                android:layout_alignParentTop="true"
+                android:textSize="30sp"
+                />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:id="@+id/btnOferta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/foto_plato"
+                android:layout_below="@+id/precio_plato"
+                android:text="Oferta" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:id="@+id/btnEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/btnOferta"
+                android:layout_below="@+id/precio_plato"
+                android:text="Editar" />
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:id="@+id/btnElimnar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/btnEditar"
+                android:layout_below="@+id/precio_plato"
+                android:text="Eliminar" />
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

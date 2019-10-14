@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -30,12 +31,12 @@ public class Lista_plato extends AppCompatActivity {
         mi_Toolbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(mi_Toolbar);
 
-      rvplato = (RecyclerView) findViewById(R.id.rv_platos);
+        rvplato = (RecyclerView) findViewById(R.id.rv_platos);
 
-      rlm = new LinearLayoutManager(this);
-      rvplato.setLayoutManager(rlm);
-      adapter = new Adaptador_lista_plato(Global.listaPlatos);
-      rvplato.setAdapter(adapter);
+         rlm = new LinearLayoutManager(this);
+         rvplato.setLayoutManager(rlm);
+         adapter = new Adaptador_lista_plato(Global.listaPlatos);
+         rvplato.setAdapter(adapter);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
@@ -50,5 +51,6 @@ public class Lista_plato extends AppCompatActivity {
         startActivity(i1);
         return true;
     }
+
 
 }
