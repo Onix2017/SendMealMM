@@ -20,6 +20,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import static android.app.PendingIntent.getActivity;
@@ -52,7 +54,11 @@ public class CrearItem extends AppCompatActivity {
 
         BtnGPlato = (Button) findViewById(R.id.btnGuardarPlato);
 
-    }
+
+        String var = this.getIntent().getStringExtra("Extra_id_Plato");
+       idPlato.setText(var);
+        }
+
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -103,17 +109,24 @@ public class CrearItem extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int intents, int codigo, @Nullable Intent data) {
+    protected void onActivityResult(int intents, int idPlato, @Nullable Intent data) {
+        Plato plato;
+        int i = 0;
+        int cantPlato = Global.listaPlatos.size();
+        while (i< cantPlato){
+            plato= Global.listaPlatos.get(i);
+            if(plato.id_plato == idPlato){
+                cargarMenu(plato);
+            }else{
+                i++;
+            }
+        }
+    }
+    public void cargarMenu(Plato plato){
 
+        NombrePlato.setText("hola", TextView.BufferType.EDITABLE);
     }
 
-    private View.OnClickListener listener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Intent intentResultado = new Intent();
-            setResult(Activity.RESULT_OK, intentResultado);
-            finish();
-        }
-    };
+
 
 }

@@ -100,7 +100,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
                 case R.id.btnEditar:
 
                 Intent i3 = new Intent(context, CrearItem.class);
-                i3.putExtra("id_Plato",id_plato.getText());
+                i3.putExtra("Extra_id_Plato",id_plato.getText());
                     ((Activity)context).startActivityForResult(i3,1);
                     break;
 
