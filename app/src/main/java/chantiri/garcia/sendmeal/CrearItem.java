@@ -30,7 +30,7 @@ public class CrearItem extends AppCompatActivity {
 
     private EditText idPlato, NombrePlato, DescPlato, precioPlato, CaloriaPlato;
     private Button BtnGPlato;
-
+    private String recupId_plato;
     private Toolbar mi_Toolbar;
 
     //private  Global GlobalPlato;// = (Global) this.getApplicationContext();
@@ -55,8 +55,11 @@ public class CrearItem extends AppCompatActivity {
         BtnGPlato = (Button) findViewById(R.id.btnGuardarPlato);
 
 
-        String var = this.getIntent().getStringExtra("Extra_id_Plato");
-       idPlato.setText(var);
+        recupId_plato = this.getIntent().getStringExtra("Extra_id_Plato");
+        if (recupId_plato != null){
+           cargarItemPlato(recupId_plato);
+        }
+
         }
 
 
@@ -96,10 +99,33 @@ public class CrearItem extends AppCompatActivity {
                             Integer idp = Integer.parseInt(idPlato.getText().toString());
                             Double preciop = Double.parseDouble(precioPlato.getText().toString());
                             Integer caloriop = Integer.parseInt(CaloriaPlato.getText().toString());
+
+                            if(recupId_plato != null){
+                                int i = buscarPosPlato(recupId_plato);
+                                //Plato pNew = Global.listaPlatos.get(i);
+
+                                Global.listaPlatos.get(i).setTituto_plato(NombrePlato.getText().toString());
+                                Global.listaPlatos.get(i).setDescripcion_plato(DescPlato.getText().toString());
+                                Global.listaPlatos.get(i).setPrecio_plato(preciop);
+                                Global.listaPlatos.get(i).setCalorias_plato(caloriop);
+
+                                Intent intentResultado = getIntent();
+
+                                intentResultado.putExtra("resultado", "modificado");
+
+                                setResult(RESULT_OK, intentResultado);
+
+                                finish();
+
+                                //Global.listaPlatos.set(i,pNew);
+                            }else{
+
                             Plato nuevoP = new Plato(idp, NombrePlato.getText().toString(), DescPlato.getText().toString(), preciop, caloriop);
 
                             Global.listaPlatos.add(nuevoP);
-                            this.finish();
+                            }
+
+                            finish();
                         }
                     }
                 }
@@ -109,22 +135,41 @@ public class CrearItem extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int intents, int idPlato, @Nullable Intent data) {
-        Plato plato;
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Toast.makeText(this, "onActivityResult", Toast.LENGTH_LONG).show();
+
+    }
+
+    public int buscarPosPlato (String idPlatoRecup){
         int i = 0;
-        int cantPlato = Global.listaPlatos.size();
+        Plato plato = Global.listaPlatos.get(i);
+        int cantPlato = Global.listaPlatos.size()-1;
         while (i< cantPlato){
-            plato= Global.listaPlatos.get(i);
-            if(plato.id_plato == idPlato){
-                cargarMenu(plato);
+            if(plato.id_plato.toString() == idPlatoRecup){
+               return i;
             }else{
                 i++;
+                plato= Global.listaPlatos.get(i);
             }
         }
-    }
-    public void cargarMenu(Plato plato){
 
-        NombrePlato.setText("hola", TextView.BufferType.EDITABLE);
+        return i;
+    }
+
+    public void cargarItemPlato (String idPlatoRecup){
+
+        int i = buscarPosPlato(idPlatoRecup);
+       Plato plato = Global.listaPlatos.get(i);
+
+        DescPlato.setText(plato.descripcion_plato.toString());
+        precioPlato.setText(plato.precio_plato.toString());
+        CaloriaPlato.setText(plato.calorias_plato.toString());
+        idPlato.setText(plato.id_plato.toString());
+        NombrePlato.setText(plato.tituto_plato);
+        idPlato.setEnabled(false);
     }
 
 
