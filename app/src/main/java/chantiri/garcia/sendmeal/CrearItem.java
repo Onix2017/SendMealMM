@@ -1,6 +1,7 @@
 package chantiri.garcia.sendmeal;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -109,12 +110,8 @@ public class CrearItem extends AppCompatActivity {
                                 Global.listaPlatos.get(i).setPrecio_plato(preciop);
                                 Global.listaPlatos.get(i).setCalorias_plato(caloriop);
 
-                                Intent intentResultado = getIntent();
-
-                                intentResultado.putExtra("resultado", "modificado");
-
-                                setResult(RESULT_OK, intentResultado);
-
+                                Intent i2 = new Intent(this, Lista_plato.class);
+                                startActivity(i2);
                                 finish();
 
                                 //Global.listaPlatos.set(i,pNew);
@@ -132,6 +129,7 @@ public class CrearItem extends AppCompatActivity {
             }
 
         }
+
     }
 
     @Override
@@ -140,7 +138,7 @@ public class CrearItem extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         Toast.makeText(this, "onActivityResult", Toast.LENGTH_LONG).show();
-
+       // startActivity(getIntent());
     }
 
     public int buscarPosPlato (String idPlatoRecup){

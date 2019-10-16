@@ -99,17 +99,18 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
             switch (view.getId()){
                 case R.id.btnEditar:
 
-                Intent i3 = new Intent(context, CrearItem.class);
-                i3.putExtra("Extra_id_Plato",id_plato.getText());
-                    ((Activity)context).startActivityForResult(i3,1);
-                    break;
+                   Intent i3 = new Intent(context, CrearItem.class);
+                   i3.putExtra("Extra_id_Plato",id_plato.getText());
+                   ((Activity)context).startActivityForResult(i3,1);
+
+                   break;
 
                 case R.id.btnElimnar:
                    this.eliminar(id_plato.getText().toString());
-                    break;
+                   break;
 
                 case R.id.btnOferta:
-                    break;
+                   break;
 
             }
         }
@@ -119,8 +120,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
             dialogo1.setMessage("¿Desea eliminar el Plato?");
             dialogo1.setCancelable(false);
             dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialogo1, int id) {
-                    aceptar(idPlato);
+                public void onClick(DialogInterface dialogo1, int id) { aceptar(idPlato);
                 }
             });
             dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -132,14 +132,28 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
         }
 
         public void aceptar(String idPlato) {
-
-            Toast t=Toast.makeText(context,"Bienvenido a probar el programa.", Toast.LENGTH_SHORT);
-
-                t.show();
+            Global.listaPlatos.remove(buscarPosPlato(idPlato));
+            ((Activity) context).recreate();
             }
 
 
         public void cancelar() {
+        }
+
+        public int buscarPosPlato (String idPlatoRecup){
+            int i = 0;
+            Plato plato = Global.listaPlatos.get(i);
+            int cantPlato = Global.listaPlatos.size()-1;
+            while (i< cantPlato){
+                if(plato.id_plato.toString() == idPlatoRecup){
+                    return i;
+                }else{
+                    i++;
+                    plato= Global.listaPlatos.get(i);
+                }
+            }
+
+            return i;
         }
       }
 }
