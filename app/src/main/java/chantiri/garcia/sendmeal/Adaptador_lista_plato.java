@@ -101,8 +101,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
 
                    Intent i3 = new Intent(context, CrearItem.class);
                    i3.putExtra("Extra_id_Plato",id_plato.getText());
-                   ((Activity)context).startActivityForResult(i3,1);
-
+                   ((Activity)context).startActivity(i3);
                    break;
 
                 case R.id.btnElimnar:
@@ -110,7 +109,17 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
                    break;
 
                 case R.id.btnOferta:
-                   break;
+                /*    try {
+                        Thread.sleep(10000);
+                        Toast.makeText(context, "Proceso terminado", Toast.LENGTH_SHORT).show();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+
+                    }*/
+                Tarea_Asinc_Oferta miTarea = new Tarea_Asinc_Oferta();
+                miTarea.execute(1,1,1);
+                    Toast.makeText(context, "Proceso terminado", Toast.LENGTH_SHORT).show();
+                    break;
 
             }
         }
@@ -155,6 +164,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
 
             return i;
         }
+
       }
 }
 

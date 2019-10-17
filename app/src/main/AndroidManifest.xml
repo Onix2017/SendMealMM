@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".Lista_plato">
         </activity>
+        <receiver android:name=".Broadcast_Oferta"/>
     </application>
 
 </manifest>

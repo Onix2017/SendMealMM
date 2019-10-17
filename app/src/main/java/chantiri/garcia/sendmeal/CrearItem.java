@@ -132,15 +132,6 @@ public class CrearItem extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
-
-        Toast.makeText(this, "onActivityResult", Toast.LENGTH_LONG).show();
-       // startActivity(getIntent());
-    }
-
     public int buscarPosPlato (String idPlatoRecup){
         int i = 0;
         Plato plato = Global.listaPlatos.get(i);
