@@ -57,7 +57,8 @@ public class CrearItem extends AppCompatActivity {
 
 
         recupId_plato = this.getIntent().getStringExtra("Extra_id_Plato");
-        if (recupId_plato != null){
+        if (recupId_plato != null)
+        {
            cargarItemPlato(recupId_plato);
         }
 
