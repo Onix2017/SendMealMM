@@ -14,10 +14,10 @@ import android.widget.Toast;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 public class Tarea_Asinc_Oferta extends AsyncTask<Context,Integer,Context>{
-
-
+ Context[] contexto;
     @Override
     protected Context doInBackground(Context... contexts) {
+        contexto = contexts;
         tareaLarga();
         return null;
     }
@@ -29,19 +29,13 @@ public class Tarea_Asinc_Oferta extends AsyncTask<Context,Integer,Context>{
         } catch(InterruptedException e) {}
     }
 
-
-
-    protected void onPostExecute(Context result){
-        BroadcastReceiver br = new Broadcast_Oferta();
-        Intent filtro = new Intent();
-        filtro.setAction(Broadcast_Oferta.EVENTO);
-        result.sendBroadcast(filtro);
-
-
-
-
-
-
+    protected void onPostExecute(Context result) {
+      /*  BroadcastReceiver br = new Broadcast_Oferta();
+        IntentFilter filtro = new IntentFilter();
+        filtro.addAction("lanzar");
+        result.registerReceiver(br, filtro);*/
+        Intent f = new Intent();
+        f.setAction("lanzar");
+        contexto[0].sendBroadcast(f);
     }
-
 }

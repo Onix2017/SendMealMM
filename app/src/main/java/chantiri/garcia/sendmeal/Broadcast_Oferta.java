@@ -20,18 +20,22 @@ public class Broadcast_Oferta extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        Log.d("mamadilas","pingaderas");
+     //   PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
+     //           PendingIntent.FLAG_ONE_SHOT);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent,
-                PendingIntent.FLAG_ONE_SHOT);
+     //   Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-        Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
+
         Notification.Builder notificationBuilder = new Notification.Builder(context)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Firebase Push Notification")
                 .setContentText("holaaaa")
-                .setAutoCancel(true)
-                .setSound(defaultSoundUri)
-                .setContentIntent(pendingIntent);
+                .setAutoCancel(true);
+     //           .setSound(defaultSoundUri)
+       //         .setContentIntent(pendingIntent);
+
 
 
 
