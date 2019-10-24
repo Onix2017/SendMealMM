@@ -23,6 +23,14 @@
         <activity android:name=".Lista_plato">
         </activity>
         <receiver android:name=".Broadcast_Oferta"/>
+
+        <receiver android:name=".Broadcast_Oferta">
+            <intent-filter>
+                <action android:name="android.intent.EVENTO">
+                </action>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package chantiri.garcia.sendmeal;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -109,18 +110,14 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
                    break;
 
                 case R.id.btnOferta:
-                /*    try {
-                        Thread.sleep(10000);
-                        Toast.makeText(context, "Proceso terminado", Toast.LENGTH_SHORT).show();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    Tarea_Asinc_Oferta miTarea = new Tarea_Asinc_Oferta();
+                    miTarea.execute(context, context,context);
 
-                    }*/
-                Tarea_Asinc_Oferta miTarea = new Tarea_Asinc_Oferta();
-                miTarea.execute(1,1,1);
-                    Toast.makeText(context, "Proceso terminado", Toast.LENGTH_SHORT).show();
+
+                    BroadcastReceiver b = new Broadcast_Oferta();
+                    Intent destino = new Intent(context, CrearItem.class);
+                    b.onReceive(context,destino);
                     break;
-
             }
         }
         public void eliminar(final String idPlato){
