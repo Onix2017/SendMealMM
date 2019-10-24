@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".home">
+        <item   android:id="@+id/mnuOpt1"
+            android:title="@string/Item_Registrame"
+            android:actionLayout="@drawable/shopping"
+            android:orderInCategory="1"
+            app:showAsAction="never">
+
+        </item>
+
+        <item   android:id="@+id/mnuOpt2"
+            android:title="@string/Item_Crear"
+            android:orderInCategory="2"
+            app:showAsAction="never">
+
+        </item>
+
+        <item   android:id="@+id/mnuOpt3"
+            android:title="@string/Item_Listar"
+            android:orderInCategory="3"
+            app:showAsAction="never">
+
+        </item>
+    </menu>

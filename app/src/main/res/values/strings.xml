@@ -1,3 +1,37 @@
 <resources>
+    <string name="registro_titulo">Registrar Usuario</string>
+    <string name="registro_nombre">Nombre</string>
+    <string name="registro_clave">Clave</string>
+    <string name="registro_clave2">Repetir Clave</string>
+    <string name="registro_correo">Correo Electronico</string>
+    <string name="registro_tarjeta">Tarjeta de Credito</string>
+    <string name="registro_credito">100</string>
+    <string name="registro_notificar">Notificar por correo Electronico </string>
+    <string name="registro_notificarSi">Enviar notificaciones al mail </string>
+    <string name="registro_notificarNo"> No enviar notificaciones al mail</string>
+    <string name="registro_vendedor">Es Vendedor</string>
+    <string name="registro_ctaalias">Alias CBU</string>
+    <string name="registro_ctaalia">CBU</string>
     <string name="app_name">SendMeal</string>
+    <string name="numTarjeta">1234567890</string>
+    <string name="registro_credInicial">Credito Inicial</string>
+
+    <string name="alta_plato_id">ID Plato</string>
+    <string name="alta_plato_nombre">Nombre</string>
+    <string name="alta_plato_descripcion">Descripción</string>
+    <string name="alta_plato_precio">Precio</string>
+    <string name="alta_plato_calorias">Calorias</string>
+    <string name="alta_plato_guardar">Guardar</string>
+
+
+
+
+    <string name="Item_Registrame">Registrarme</string>
+    <string name="Item_Crear">Crear Item</string>
+    <string name="Item_Listar">Listar Items</string>
+
+    <string name="Item_Volver">Home</string>
+
+    <string name="start">0</string>
+    <string name="stop">1500</string>
 </resources>
