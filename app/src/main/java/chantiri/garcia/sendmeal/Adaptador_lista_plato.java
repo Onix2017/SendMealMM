@@ -113,10 +113,6 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
                     Tarea_Asinc_Oferta miTarea = new Tarea_Asinc_Oferta();
                     miTarea.execute(context, context,context);
 
-
-                    BroadcastReceiver b = new Broadcast_Oferta();
-                    Intent destino = new Intent(context, CrearItem.class);
-                    b.onReceive(context,destino);
                     break;
             }
         }
