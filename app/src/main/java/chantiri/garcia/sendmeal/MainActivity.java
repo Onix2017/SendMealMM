@@ -3,7 +3,10 @@ package chantiri.garcia.sendmeal;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.Menu;
@@ -50,6 +53,20 @@ public class MainActivity extends AppCompatActivity {
 
         mi_Toolbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(mi_Toolbar);
+
+
+            if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O) {
+                CharSequence name= getString(R.string.nombre_canal);
+                String description= getString(R.string.descripcion_canal);
+                int importance= NotificationManager.IMPORTANCE_DEFAULT;
+                NotificationChannel channel= new NotificationChannel("01", name, importance);
+                channel.setDescription(description);
+                NotificationManager notificationManager=getSystemService(NotificationManager.class);
+                notificationManager.createNotificationChannel(channel);
+            }
+
+
+
 
         //elementos del usuario
         Nombre = (EditText) findViewById(R.id.regNombre);

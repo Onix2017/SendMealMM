@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,7 +32,7 @@ public class CrearItem extends AppCompatActivity {
 
     private EditText idPlato, NombrePlato, DescPlato, precioPlato, CaloriaPlato;
     private Button BtnGPlato;
-    private String recupId_plato;
+    private String recupId_plato, recupId_plato1;
     private Toolbar mi_Toolbar;
 
     //private  Global GlobalPlato;// = (Global) this.getApplicationContext();
@@ -59,10 +60,18 @@ public class CrearItem extends AppCompatActivity {
         recupId_plato = this.getIntent().getStringExtra("Extra_id_Plato");
         if (recupId_plato != null)
         {
+
            cargarItemPlato(recupId_plato);
         }
 
+        recupId_plato1 = this.getIntent().getStringExtra("Extra_id_Plato1");
+        if(recupId_plato1 != null) {
+            Log.d("Id Plato:",Adaptador_lista_plato.ID_PLATO_OFERTA);
+            cargarItemPlatoOferta(recupId_plato1);
         }
+
+        }
+
 
 
 
@@ -102,9 +111,9 @@ public class CrearItem extends AppCompatActivity {
                             Double preciop = Double.parseDouble(precioPlato.getText().toString());
                             Integer caloriop = Integer.parseInt(CaloriaPlato.getText().toString());
 
-                            if(recupId_plato != null){
+                            if(recupId_plato != null)
+                            {
                                 int i = buscarPosPlato(recupId_plato);
-                                //Plato pNew = Global.listaPlatos.get(i);
 
                                 Global.listaPlatos.get(i).setTituto_plato(NombrePlato.getText().toString());
                                 Global.listaPlatos.get(i).setDescripcion_plato(DescPlato.getText().toString());
@@ -117,11 +126,18 @@ public class CrearItem extends AppCompatActivity {
 
                                 //Global.listaPlatos.set(i,pNew);
                             }else{
+                                if(recupId_plato1 != null)
+                                {
+                                    Intent i2 = new Intent(this, Lista_plato.class);
+                                    startActivity(i2);
+                                    finish();
+                                }else{
 
-                            Plato nuevoP = new Plato(idp, NombrePlato.getText().toString(), DescPlato.getText().toString(), preciop, caloriop);
+                                        Plato nuevoP = new Plato(idp, NombrePlato.getText().toString(), DescPlato.getText().toString(), preciop, caloriop);
 
-                            Global.listaPlatos.add(nuevoP);
-                            }
+                                        Global.listaPlatos.add(nuevoP);
+                                    }
+                                }
 
                             finish();
                         }
@@ -154,7 +170,7 @@ public class CrearItem extends AppCompatActivity {
         int i = buscarPosPlato(idPlatoRecup);
        Plato plato = Global.listaPlatos.get(i);
 
-        DescPlato.setText(plato.descripcion_plato.toString());
+        DescPlato.setText(plato.descripcion_plato);
         precioPlato.setText(plato.precio_plato.toString());
         CaloriaPlato.setText(plato.calorias_plato.toString());
         idPlato.setText(plato.id_plato.toString());
@@ -162,6 +178,23 @@ public class CrearItem extends AppCompatActivity {
         idPlato.setEnabled(false);
     }
 
+    public void cargarItemPlatoOferta (String idPlatoRecup){
 
+        int i = buscarPosPlato(idPlatoRecup);
+        Plato plato = Global.listaPlatos.get(i);
+
+        DescPlato.setText(plato.descripcion_plato);
+        precioPlato.setText(plato.precio_plato.toString());
+        CaloriaPlato.setText(plato.calorias_plato.toString());
+        idPlato.setText(plato.id_plato.toString());
+        NombrePlato.setText(plato.tituto_plato);
+
+        idPlato.setEnabled(false);
+        precioPlato.setEnabled(false);
+        CaloriaPlato.setEnabled(false);
+        NombrePlato.setEnabled(false);
+        DescPlato.setEnabled(false);
+
+    }
 
 }

@@ -15,6 +15,8 @@
     <string name="app_name">SendMeal</string>
     <string name="numTarjeta">1234567890</string>
     <string name="registro_credInicial">Credito Inicial</string>
+    <string name="nombre_canal">Oferta</string>
+    <string name="descripcion_canal">Crear Item</string>
 
     <string name="alta_plato_id">ID Plato</string>
     <string name="alta_plato_nombre">Nombre</string>

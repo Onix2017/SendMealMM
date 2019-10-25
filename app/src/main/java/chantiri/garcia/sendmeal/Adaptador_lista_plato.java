@@ -24,7 +24,7 @@ import java.util.List;
 public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_plato.PlatoViewHolder> {
 
     private ArrayList<Plato> data;
-
+    public static String ID_PLATO_OFERTA;
     public Adaptador_lista_plato(ArrayList<Plato> data) {
 
         this.data = data;
@@ -110,6 +110,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
                    break;
 
                 case R.id.btnOferta:
+                    ID_PLATO_OFERTA = id_plato.getText().toString();
                     Tarea_Asinc_Oferta miTarea = new Tarea_Asinc_Oferta();
                     miTarea.execute(context, context,context);
 
