@@ -1,5 +1,6 @@
 package chantiri.garcia.sendmeal.modelo;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Relation;
@@ -11,13 +12,14 @@ import java.util.List;
 public class Pedido {
 
     @PrimaryKey(autoGenerate = true)
+    @NonNull
     private Integer Id;
+
     private Date Fecha;
     private Integer Estado;
     private Double Lat;
     private Double Lgn;
 
-    @Relation(parentColumn = "Id", entityColumn = "Id",  entity = "Pedido.class" )
     private List<ItemsPedidos> Items;
 
     public Pedido() {
