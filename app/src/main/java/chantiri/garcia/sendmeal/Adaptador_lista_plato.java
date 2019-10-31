@@ -112,7 +112,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
                 case R.id.btnOferta:
                     ID_PLATO_OFERTA = id_plato.getText().toString();
                     Tarea_Asinc_Oferta miTarea = new Tarea_Asinc_Oferta();
-                    miTarea.execute(context, context,context);
+                    miTarea.execute(context,context,context);
 
                     break;
             }
