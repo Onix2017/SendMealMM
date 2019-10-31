@@ -1,18 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/mi_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registro_titulo"
+        android:textColor="@color/titulo_"
+        android:textSize="@dimen/titulo"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registro_nombre"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+    <EditText
+        android:id="@+id/regNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registro_clave"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+    <EditText
+        android:id="@+id/regClave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:password="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registro_clave2"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+    <EditText
+        android:id="@+id/regClave2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:password="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registro_correo"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+    <EditText
+        android:id="@+id/regMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registro_tarjeta"
+        android:textColor="@color/etiqueta_"
+        android:textSize="@dimen/etiqueta" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/regNro"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:digits="@string/numTarjeta"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:maxLength="16"
+            android:hint="Numero" />
+
+        <EditText
+            android:id="@+id/regDigito"
+            android:layout_width="91dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:digits="@string/numTarjeta"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:maxLength="3"
+            android:hint="CCV" />
+
+        <EditText
+            android:id="@+id/regVto"
+            android:layout_width="102dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:digits="1234567890/"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:maxLength="5"
+            android:hint="MM/AA" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/tipoCuentaGrp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/optBase"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tipo de Cuenta" />
+
+        <RadioButton
+            android:id="@+id/optBase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="seleccionTipoCuenta"
+            android:text="Base" />
+
+        <RadioButton
+            android:id="@+id/optPremium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="seleccionTipoCuenta"
+            android:text="Premium" />
+
+        <RadioButton
+            android:id="@+id/optFull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="seleccionTipoCuenta"
+            android:text="Full" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp">
+
+        <TextView
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/etiqueta_"
+            android:text="@string/registro_credInicial" />
+
+        <TextView
+            android:id="@+id/txtCredInicial"
+            android:layout_width="109dp"
+            android:layout_height="wrap_content"
+            android:text="@string/registro_credito"
+            android:textColor="@color/etiqueta_"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/regCredito"
+        android:layout_width="match_parent"
+        android:layout_height="31dp"
+        android:min="0"
+        android:max="1500" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registro_notificar" />
+
+    <ToggleButton
+        android:id="@+id/optNotificarMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOff="@string/registro_notificarNo"
+        android:textOn="@string/registro_notificarSi" />
+
+    <Switch
+        android:id="@+id/optEsVendedor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Vendedor"
+        android:text="@string/registro_vendedor" />
+
+    <LinearLayout
+        android:id="@+id/layoutCuenta"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registro_ctaalia" />
+
+        <EditText
+            android:id="@+id/ctaAlias"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registro_ctaalias" />
+
+        <EditText
+            android:id="@+id/ctaCBU"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/aceptaCondiciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:onClick="AceptaTerminos"
+        android:text='"Acepta terminos y condiciones"' />
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:enabled="false"
+        android:onClick="enviar"
+        android:text="Registrar" />
+
+</LinearLayout>
+</ScrollView>
