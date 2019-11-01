@@ -1,5 +1,6 @@
 package chantiri.garcia.sendmeal.modelo;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Relation;
@@ -13,8 +14,8 @@ public class ItemsPedidos {
     private Integer Id;
 
 
-    private Pedido PedidoP;
-    private Plato PlatoP;
+    private Integer PedidoP;
+    private Integer PlatoP;
     private Integer Cantidad;
     private Integer Precio;
 
@@ -29,19 +30,19 @@ public class ItemsPedidos {
         Id = id;
     }
 
-    public Pedido getPedidoP() {
+    public Integer getPedidoP() {
         return PedidoP;
     }
 
-    public void setPedidoP(Pedido pedidoP) {
+    public void setPedidoP(Integer pedidoP) {
         PedidoP = pedidoP;
     }
 
-    public Plato getPlatoP() {
+    public Integer getPlatoP() {
         return PlatoP;
     }
 
-    public void setPlatoP(Plato platoP) {
+    public void setPlatoP(Integer platoP) {
         PlatoP = platoP;
     }
 

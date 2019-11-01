@@ -5,6 +5,8 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.Relation;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -15,12 +17,14 @@ public class Pedido {
     @NonNull
     private Integer Id;
 
-    private Date Fecha;
+    private String Fecha;
     private Integer Estado;
     private Double Lat;
     private Double Lgn;
 
-    private List<ItemsPedidos> Items;
+  //  @Relation(parentColumn = "Id", entityColumn = "PedidoP",
+  //          entity = ItemsPedidos.class)
+    private Integer Items;
 
     public Pedido() {
     }
@@ -33,11 +37,11 @@ public class Pedido {
         Id = id;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return Fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         Fecha = fecha;
     }
 
@@ -65,11 +69,12 @@ public class Pedido {
         Lgn = lgn;
     }
 
-    public List<ItemsPedidos> getItems() {
+    public Integer getItems() {
         return Items;
     }
 
-    public void setItems(List<ItemsPedidos> items) {
-        this.Items = items;
+    public void setItems(Integer items) {
+        Items = items;
     }
+
 }
