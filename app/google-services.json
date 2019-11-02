@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1035009601494",
+    "firebase_url": "https://sendmealmm.firebaseio.com",
+    "project_id": "sendmealmm",
+    "storage_bucket": "sendmealmm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035009601494:android:a403d99e2bb9648dfffe77",
+        "android_client_info": {
+          "package_name": "chantiri.garcia.sendmeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035009601494-5op5kfln622u2gnno0pp21nua1oe6lsp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDor9-hThgnv9cvbIPIZhEl9mEyVi2ezec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1035009601494-5op5kfln622u2gnno0pp21nua1oe6lsp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
