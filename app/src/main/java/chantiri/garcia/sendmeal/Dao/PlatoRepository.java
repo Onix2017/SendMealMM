@@ -25,7 +25,7 @@ public class PlatoRepository {
     public static final int _BORRADO_PLATO =3;
     public static final int _CONSULTA_PLATO =4;
     public static final int _ERROR_PLATO =9;
-
+//
     private static PlatoRepository _INSTANCE;
 
     private PlatoRepository(){}
