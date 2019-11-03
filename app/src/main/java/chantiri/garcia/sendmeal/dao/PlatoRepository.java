@@ -1,4 +1,4 @@
-package chantiri.garcia.sendmeal.Dao;
+package chantiri.garcia.sendmeal.dao;
 
 import android.os.Handler;
 import android.os.Message;
@@ -7,7 +7,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import chantiri.garcia.sendmeal.Dao.rest.PlatoRest;
 import chantiri.garcia.sendmeal.Plato;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PlatoRepository {
 
-    public static String _SERVER = "http://127.0.0.1:5000/";
+    public static String _SERVER = "http://192.168.0.53:5000/";
     private List<Plato> listaPlatos;
 //
     public static final int _ALTA_PLATO =1;
@@ -41,19 +40,19 @@ public class PlatoRepository {
 
     private Retrofit rf;
 
-    private PlatoRest platoRest;
+    private chantiri.garcia.sendmeal.dao.rest.platoRest platoRest;
 
     private void configurarRetrofit(){
         this.rf = new Retrofit.Builder()
-                .baseUrl("http://127.0.0.1:5000/")
+                .baseUrl("http://192.168.0.63:5000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Log.d("APP_2","INSTANCIA CREADA");
 
-        this.platoRest = this.rf.create(PlatoRest.class);
+        this.platoRest = this.rf.create(chantiri.garcia.sendmeal.dao.rest.platoRest.class);
     }
 
-    public void actualizarObra(final Plato o, final Handler h){
+    public void actualizarPlato(final Plato o, final Handler h){
         Call<Plato> llamada = this.platoRest.actualizar(o.getId_plato(),o);
         llamada.enqueue(new Callback<Plato>() {
             @Override
@@ -81,13 +80,13 @@ public class PlatoRepository {
         });
     }
 
-    public void crearObra(Plato o, final Handler h){
+    public void crearPlato(Plato o, final Handler h){
         Call<Plato> llamada = this.platoRest.crear(o);
         llamada.enqueue(new Callback<Plato>() {
             @Override
             public void onResponse(Call<Plato> call, Response<Plato> response) {
                 Log.d("APP_2","Despues que ejecuta"+ response.isSuccessful());
-                Log.d("APP_2","COdigo"+ response.code());
+                Log.d("APP_2","Codigo"+ response.code());
 
                 if(response.isSuccessful()){
                     Log.d("APP_2","EJECUTO");
@@ -108,7 +107,7 @@ public class PlatoRepository {
         });
     }
 
-    public void listarObra(final Handler h){
+    public void listarPlato(final Handler h){
         Call<List<Plato>> llamada = this.platoRest.buscarTodas();
         llamada.enqueue(new Callback<List<Plato>>() {
             @Override
@@ -131,7 +130,7 @@ public class PlatoRepository {
         });
     }
 
-    public void borrarObra(final Plato o, final Handler h){
+    public void borrarPlato(final Plato o, final Handler h){
         final Call<Void> llamada = this.platoRest.borrar(o.getId_plato());
         llamada.enqueue(new Callback<Void>() {
             @Override
@@ -142,12 +141,12 @@ public class PlatoRepository {
                 if(response.isSuccessful()){
                     Log.d("APP_2","EJECUTO");
                     for(Plato o : listaPlatos){
-                        Log.d("APP_2","Obra "+o.getId_plato());
+                        Log.d("APP_2","Plato "+o.getId_plato());
                     }
-                    Log.d("APP_2","BORRA Obra "+o.getId_plato());
+                    Log.d("APP_2","BORRA Plato "+o.getId_plato());
                     listaPlatos.remove(o);
                     for(Plato o : listaPlatos){
-                        Log.d("APP_2","Obra "+o.getId_plato());
+                        Log.d("APP_2","Plato "+o.getId_plato());
                     }
                     Message m = new Message();
                     m.arg1 = _BORRADO_PLATO;

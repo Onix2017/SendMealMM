@@ -1,4 +1,4 @@
-package chantiri.garcia.sendmeal.Dao.rest;
+package chantiri.garcia.sendmeal.dao.rest;
 
 import java.util.List;
 
@@ -11,17 +11,18 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface PlatoRest {
+public interface platoRest {
 
-    @GET("Platos/")
+    @GET("platos/")
     Call<List<Plato>> buscarTodas();
 
-    @DELETE("Platos/{id}")
+    @DELETE("platos/{id}")
     Call<Void> borrar(@Path("id") Integer id);
 
-    @PUT("Platos/{id}")
+    @PUT("platos/{id}")
     Call<Plato> actualizar(@Path("id") Integer id, @Body Plato plato);
 
-    @POST("Platos/")
+    @POST("platos/")
     Call<Plato> crear(@Body Plato plato);
+
 }

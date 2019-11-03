@@ -3,12 +3,6 @@ package chantiri.garcia.sendmeal.modelo;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.Relation;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Pedido {
@@ -22,9 +16,7 @@ public class Pedido {
     private Double Lat;
     private Double Lgn;
 
-  //  @Relation(parentColumn = "Id", entityColumn = "PedidoP",
-  //          entity = ItemsPedidos.class)
-    private Integer Items;
+    //private List<ItemsPedidos> Items;
 
     public Pedido() {
     }
@@ -69,12 +61,11 @@ public class Pedido {
         Lgn = lgn;
     }
 
-    public Integer getItems() {
+    /*public List<ItemsPedidos> getItems() {
         return Items;
     }
 
-    public void setItems(Integer items) {
-        Items = items;
-    }
-
+    public void setItems(List<ItemsPedidos> items) {
+        this.Items = items;
+    }*/
 }
