@@ -1,32 +1,23 @@
 package chantiri.garcia.sendmeal;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-
-import static android.app.PendingIntent.getActivity;
+import chantiri.garcia.sendmeal.dao.PlatoRepository;
 
 public class CrearItem extends AppCompatActivity {
 
@@ -34,6 +25,8 @@ public class CrearItem extends AppCompatActivity {
     private Button BtnGPlato;
     private String recupId_plato, recupId_plato1;
     private Toolbar mi_Toolbar;
+
+    private Plato PlatoActual;
 
     //private  Global GlobalPlato;// = (Global) this.getApplicationContext();
 
@@ -136,7 +129,8 @@ public class CrearItem extends AppCompatActivity {
                                         Plato nuevoP = new Plato(idp, NombrePlato.getText().toString(), DescPlato.getText().toString(), preciop, caloriop);
 
                                         Global.listaPlatos.add(nuevoP);
-                                    }
+                                        PlatoRepository.getInstance().crearPlato(PlatoActual,miHandler);
+                                }
                                 }
 
                             finish();
@@ -148,6 +142,21 @@ public class CrearItem extends AppCompatActivity {
         }
 
     }
+
+    Handler miHandler = new Handler(Looper.myLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("APP_2","Vuelve al handler"+msg.arg1);
+
+        /*    switch (msg.arg1 ){
+                case PlatoRepository._ALTA_OBRA:
+                case PlatoRepository._UPDATE_OBRA:
+                    Intent i = new Intent(PlatoActivity.this,PlatoListActivity.class);
+                    startActivity(i);
+                    break;
+            }*/
+        }
+    };
 
     public int buscarPosPlato (String idPlatoRecup){
         int i = 0;
