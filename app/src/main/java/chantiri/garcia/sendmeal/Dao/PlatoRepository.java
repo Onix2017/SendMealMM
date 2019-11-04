@@ -53,7 +53,7 @@ public class PlatoRepository {
         this.platoRest = this.rf.create(PlatoRest.class);
     }
 
-    public void actualizarObra(final Plato o, final Handler h){
+    public void actualizarPlato(final Plato o, final Handler h){
         Call<Plato> llamada = this.platoRest.actualizar(o.getId_plato(),o);
         llamada.enqueue(new Callback<Plato>() {
             @Override
@@ -81,7 +81,7 @@ public class PlatoRepository {
         });
     }
 
-    public void crearObra(Plato o, final Handler h){
+    public void crearPlato(Plato o, final Handler h){
         Call<Plato> llamada = this.platoRest.crear(o);
         llamada.enqueue(new Callback<Plato>() {
             @Override
@@ -108,7 +108,7 @@ public class PlatoRepository {
         });
     }
 
-    public void listarObra(final Handler h){
+    public void listarPlato(final Handler h){
         Call<List<Plato>> llamada = this.platoRest.buscarTodas();
         llamada.enqueue(new Callback<List<Plato>>() {
             @Override
@@ -131,7 +131,7 @@ public class PlatoRepository {
         });
     }
 
-    public void borrarObra(final Plato o, final Handler h){
+    public void borrarPlato(final Plato o, final Handler h){
         final Call<Void> llamada = this.platoRest.borrar(o.getId_plato());
         llamada.enqueue(new Callback<Void>() {
             @Override
@@ -164,7 +164,7 @@ public class PlatoRepository {
             }
         });
     }
-    public List<Plato> getListaObras() {
+    public List<Plato> getListaPlatos() {
         return listaPlatos;
 
 
