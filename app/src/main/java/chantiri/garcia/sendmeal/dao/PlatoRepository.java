@@ -1,4 +1,4 @@
-package chantiri.garcia.sendmeal.dao;
+package chantiri.garcia.sendmeal.Dao;
 
 import android.os.Handler;
 import android.os.Message;
@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PlatoRepository {
 
-    public static String _SERVER = "http://192.168.0.53:5000/";
+    public static String _SERVER = "http://192.168.43.133:5000/";
     private List<Plato> listaPlatos;
 //
     public static final int _ALTA_PLATO =1;
@@ -40,16 +40,16 @@ public class PlatoRepository {
 
     private Retrofit rf;
 
-    private chantiri.garcia.sendmeal.dao.rest.platoRest platoRest;
+    private chantiri.garcia.sendmeal.Dao.rest.platoRest platoRest;
 
     private void configurarRetrofit(){
         this.rf = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.63:5000/")
+                .baseUrl("http://192.168.43.133:5000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Log.d("APP_2","INSTANCIA CREADA");
 
-        this.platoRest = this.rf.create(chantiri.garcia.sendmeal.dao.rest.platoRest.class);
+        this.platoRest = this.rf.create(chantiri.garcia.sendmeal.Dao.rest.platoRest.class);
     }
 
     public void actualizarPlato(final Plato o, final Handler h){

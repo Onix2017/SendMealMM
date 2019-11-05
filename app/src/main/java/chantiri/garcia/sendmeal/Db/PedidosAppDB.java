@@ -7,7 +7,7 @@ import chantiri.garcia.sendmeal.modelo.ItemsPedidos;
 import chantiri.garcia.sendmeal.modelo.Pedido;
 
 
-@Database(entities = {Pedido.class, ItemsPedidos.class}, version = 1)
+@Database(entities = {Pedido.class, ItemsPedidos.class}, version = 1, exportSchema = false)
 public abstract class PedidosAppDB extends RoomDatabase {
 public abstract ItemsPedidosDao itemsPedidosDao();
 public abstract PedidoDao pedidoDao();

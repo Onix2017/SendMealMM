@@ -17,7 +17,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import chantiri.garcia.sendmeal.dao.PlatoRepository;
+import chantiri.garcia.sendmeal.Dao.PlatoRepository;
 
 public class CrearItem extends AppCompatActivity {
 
@@ -113,6 +113,8 @@ public class CrearItem extends AppCompatActivity {
                                 Global.listaPlatos.get(i).setPrecio_plato(preciop);
                                 Global.listaPlatos.get(i).setCalorias_plato(caloriop);
 
+
+
                                 Intent i2 = new Intent(this, Lista_plato.class);
                                 startActivity(i2);
                                 finish();
@@ -129,7 +131,9 @@ public class CrearItem extends AppCompatActivity {
                                         Plato nuevoP = new Plato(idp, NombrePlato.getText().toString(), DescPlato.getText().toString(), preciop, caloriop);
 
                                         Global.listaPlatos.add(nuevoP);
-                                        PlatoRepository.getInstance().crearPlato(PlatoActual,miHandler);
+
+                                        //CREA EL PLATO EN EL ARCHIVO LAB-DAM.JSON
+                                        PlatoRepository.getInstance().crearPlato(nuevoP,miHandler);
                                 }
                                 }
 
@@ -177,13 +181,15 @@ public class CrearItem extends AppCompatActivity {
     public void cargarItemPlato (String idPlatoRecup){
 
         int i = buscarPosPlato(idPlatoRecup);
-       Plato plato = Global.listaPlatos.get(i);
+        Plato plato = Global.listaPlatos.get(i);
 
-        DescPlato.setText(plato.descripcion_plato);
-        precioPlato.setText(plato.precio_plato.toString());
-        CaloriaPlato.setText(plato.calorias_plato.toString());
-        idPlato.setText(plato.id_plato.toString());
-        NombrePlato.setText(plato.tituto_plato);
+        Plato plato1 = PlatoRepository.getInstance().getListaPlatos().get(i);
+
+        DescPlato.setText(plato1.descripcion_plato);
+        precioPlato.setText(plato1.precio_plato.toString());
+        CaloriaPlato.setText(plato1.calorias_plato.toString());
+        idPlato.setText(plato1.id_plato.toString());
+        NombrePlato.setText(plato1.tituto_plato);
         idPlato.setEnabled(false);
     }
 

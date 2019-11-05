@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".busquedaPlato"></activity>
         <activity android:name=".home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,19 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".CrearItem">
-        </activity>
-        <activity android:name=".Lista_plato">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".CrearItem"></activity>
+        <activity android:name=".Lista_plato"></activity>
+
         <receiver android:name=".Broadcast_Oferta">
             <intent-filter>
-                <action android:name="lanzar">
-                </action>
+                <action android:name="lanzar"></action>
             </intent-filter>
         </receiver>
-
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

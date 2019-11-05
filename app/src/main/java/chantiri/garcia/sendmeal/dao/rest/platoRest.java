@@ -1,4 +1,4 @@
-package chantiri.garcia.sendmeal.dao.rest;
+package chantiri.garcia.sendmeal.Dao.rest;
 
 import java.util.List;
 
