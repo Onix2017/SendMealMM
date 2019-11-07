@@ -15,6 +15,14 @@ public class Plato {
         this.calorias_plato = calorias_plato;
     }
 
+    @Override
+    public String toString() {
+        return
+                 id_plato +
+                " '" + tituto_plato + '\'' +
+                " " + descripcion_plato + '\'' +
+                " " + precio_plato;
+    }
 
     public Integer getId_plato() {
         return id_plato;

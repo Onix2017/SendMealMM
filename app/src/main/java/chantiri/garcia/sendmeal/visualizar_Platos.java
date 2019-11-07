@@ -66,7 +66,7 @@ public class visualizar_Platos extends AppCompatActivity {
         });
 
 
-        PlatoRepository.getInstance().listarPlato(miHandler);
+        //PlatoRepository.getInstance().listarPlato(miHandler);
 
         listaDataSet = PlatoRepository.getInstance().filtrarPlatos("sdd",miHandler);
         //listaDataSet= PlatoRepository.getInstance().getListaPlatos();
