@@ -31,9 +31,9 @@ public class busquedaPlato extends AppCompatActivity {
                 }
                 else{
 
-                    Toast.makeText(busquedaPlato.this, nombPlato.getText().toString(), Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(busquedaPlato.this, nombPlato.getText().toString(), Toast.LENGTH_LONG).show();
 
-                    Intent i = new Intent(busquedaPlato.this,Lista_plato.class);
+                    Intent i = new Intent(busquedaPlato.this,visualizar_Platos.class);
                 i.putExtra("precioMin", precioMin.getText());
                 i.putExtra("precioMax",precioMax.getText());
                 i.putExtra("nombrePlato",nombPlato.getText().toString());

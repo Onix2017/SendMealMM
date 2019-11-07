@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PlatoRepository {
 
-    public static String _SERVER = "http://192.168.0.3:5000/";
+    public static String _SERVER = "http://192.168.43.133:5000/";
     private ArrayList<Plato> listaPlatos;
 //
     public static final int _ALTA_PLATO =1;
@@ -44,7 +44,7 @@ public class PlatoRepository {
 
     private void configurarRetrofit(){
         this.rf = new Retrofit.Builder()
-                .baseUrl("http://192.168.0.3:5000/")
+                .baseUrl("http://192.168.43.133:5000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Log.d("APP_2","INSTANCIA CREADA");
