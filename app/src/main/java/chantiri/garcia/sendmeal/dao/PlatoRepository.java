@@ -16,8 +16,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PlatoRepository {
 
-    public static String _SERVER = "http://192.168.43.133:5000/";
-    private List<Plato> listaPlatos;
+    public static String _SERVER = "http://192.168.0.3:5000/";
+    private ArrayList<Plato> listaPlatos;
 //
     public static final int _ALTA_PLATO =1;
     public static final int _UPDATE_PLATO =2;
@@ -44,7 +44,7 @@ public class PlatoRepository {
 
     private void configurarRetrofit(){
         this.rf = new Retrofit.Builder()
-                .baseUrl("http://192.168.43.133:5000/")
+                .baseUrl("http://192.168.0.3:5000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Log.d("APP_2","INSTANCIA CREADA");
@@ -163,9 +163,35 @@ public class PlatoRepository {
             }
         });
     }
-    public List<Plato> getListaPlatos() {
+    public ArrayList<Plato> getListaPlatos() {
         return listaPlatos;
-
-
     }
+
+    public ArrayList<Plato> filtrarPlatos(String nomP, final Handler h){
+        Call<List<Plato>> llamada = this.platoRest.filtrarPlatos(nomP);
+        llamada.enqueue(new Callback<List<Plato>>() {
+            @Override
+            public void onResponse(Call<List<Plato>> call, Response<List<Plato>> response) {
+                if(response.isSuccessful()){
+                    listaPlatos.clear();
+                    listaPlatos.addAll(response.body());
+                    Message m = new Message();
+                    m.arg1 = _CONSULTA_PLATO;
+                    h.sendMessage(m);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Plato>> call, Throwable t) {
+                Message m = new Message();
+                m.arg1 = _ERROR_PLATO;
+                h.sendMessage(m);
+            }
+        });
+        return listaPlatos;
+    }
+
+
+
+
 }

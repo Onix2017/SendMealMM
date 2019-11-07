@@ -10,11 +10,16 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
+import retrofit2.http.QueryMap;
 
 public interface platoRest {
 
     @GET("platos/")
     Call<List<Plato>> buscarTodas();
+
+    @GET("platos/")
+    Call<List<Plato>> filtrarPlatos(@Query("tituto_plato") String tituto_plato);
 
     @DELETE("platos/{id}")
     Call<Void> borrar(@Path("id") Integer id);

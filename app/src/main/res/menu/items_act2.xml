@@ -24,4 +24,11 @@
             app:showAsAction="never">
 
         </item>
+
+        <item  android:id="@+id/mnuOpt4"
+        android:title="@string/Buscar_Plato"
+        android:orderInCategory="4"
+        app:showAsAction="never">
+
+        </item>
     </menu>
