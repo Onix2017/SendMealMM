@@ -57,7 +57,7 @@ public class Lista_plato extends AppCompatActivity {
         nombrePlato = this.getIntent().getStringExtra("nombrePlato");
              //PlatoRepository.getInstance().listarPlato(miHandler);
 
-        Toast.makeText(this,nombrePlato, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this,nombrePlato, Toast.LENGTH_LONG).show();
 
              lista_plato = PlatoRepository.getInstance().filtrarPlatos(nombrePlato,miHandler);
 
