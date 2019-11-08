@@ -65,7 +65,8 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
 
     public static class PlatoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         CardView cv;
-        // context
+
+
         Context context;
         ImageView imgPlato;
         TextView tituto_plato;
