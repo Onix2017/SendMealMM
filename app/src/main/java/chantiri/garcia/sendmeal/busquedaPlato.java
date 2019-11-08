@@ -37,6 +37,7 @@ public class busquedaPlato extends AppCompatActivity {
                 i.putExtra("precioMin", precioMin.getText());
                 i.putExtra("precioMax",precioMax.getText());
                 i.putExtra("nombrePlato",nombPlato.getText().toString());
+                i.putExtra("tilde","2");
                 startActivity(i);
                 }
             }
