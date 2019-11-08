@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".visualizar_Platos"></activity>
         <activity android:name=".alta_Pedido" />
         <activity android:name=".busquedaPlato" />
         <activity android:name=".home">
