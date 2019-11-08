@@ -80,6 +80,13 @@
                 android:layout_below="@+id/precio_plato"
                 android:text="Eliminar" />
 
+            <CheckBox
+                android:id="@+id/selecPlato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/btnElimnar"
+                android:text="" />
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

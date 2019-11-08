@@ -33,7 +33,7 @@ public class busquedaPlato extends AppCompatActivity {
 
                   //  Toast.makeText(busquedaPlato.this, nombPlato.getText().toString(), Toast.LENGTH_LONG).show();
 
-                    Intent i = new Intent(busquedaPlato.this,visualizar_Platos.class);
+                Intent i = new Intent(busquedaPlato.this,Lista_plato.class);
                 i.putExtra("precioMin", precioMin.getText());
                 i.putExtra("precioMax",precioMax.getText());
                 i.putExtra("nombrePlato",nombPlato.getText().toString());

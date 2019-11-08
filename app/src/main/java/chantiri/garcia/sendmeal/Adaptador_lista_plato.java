@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,14 +26,17 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
 
     private ArrayList<Plato> data;
     public static String ID_PLATO_OFERTA;
-    public Adaptador_lista_plato(ArrayList<Plato> data) {
+    public String selec;
+
+    public Adaptador_lista_plato(ArrayList<Plato> data, String t) {
 
         this.data = data;
+        this.selec = t;
     }
 
     @Override
     public PlatoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new PlatoViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.fila_plato, parent, false));
+        return new PlatoViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.fila_plato, parent, false),selec);
     }
 
     @Override
@@ -71,8 +75,9 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
         Button editar_plato;
         Button eliminar_plato;
         Button oferta_plato;
+        CheckBox tilde;
 
-        public PlatoViewHolder(View itemView) {
+        public PlatoViewHolder(View itemView,String s) {
             super(itemView);
 
             context = itemView.getContext();
@@ -86,6 +91,20 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
             editar_plato = (Button) itemView.findViewById(R.id.btnEditar);
             eliminar_plato = (Button) itemView.findViewById(R.id.btnElimnar);
             oferta_plato = (Button) itemView.findViewById(R.id.btnOferta);
+            tilde = (CheckBox) itemView.findViewById(R.id.selecPlato);
+
+            if(s.equals("1"))
+            {
+                tilde.setVisibility(View.INVISIBLE);
+                editar_plato.setVisibility(View.VISIBLE);
+                eliminar_plato.setVisibility(View.VISIBLE);
+                oferta_plato.setVisibility(View.VISIBLE);
+            }else{
+                tilde.setVisibility(View.VISIBLE);
+                editar_plato.setVisibility(View.INVISIBLE);
+                eliminar_plato.setVisibility(View.INVISIBLE);
+                oferta_plato.setVisibility(View.INVISIBLE);
+            }
         }
        public void setOnClickListener(){
            editar_plato.setOnClickListener(this);

@@ -19,8 +19,8 @@ public class Plato {
     public String toString() {
         return
                  id_plato +
-                " '" + tituto_plato + '\'' +
-                " " + descripcion_plato + '\'' +
+                " '" + tituto_plato + '\n' +
+                " " + descripcion_plato + '\n' +
                 " " + precio_plato;
     }
 

@@ -29,6 +29,7 @@ public class Lista_plato extends AppCompatActivity {
 
     private Toolbar mi_Toolbar;
     private String precioMin, precioMax,nombrePlato;
+    private String tilde;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +48,12 @@ public class Lista_plato extends AppCompatActivity {
          rlm = new LinearLayoutManager(this);
          rvplato.setLayoutManager(rlm);
 
-       /*  precioMin = this.getIntent().getStringExtra("precioMin");
+      /*   precioMin = this.getIntent().getStringExtra("precioMin");
          precioMax = this.getIntent().getStringExtra("precioMin");
          nombrePlato = this.getIntent().getStringExtra("nombrePlato");
          if(!precioMin.isEmpty() || !precioMax.isEmpty() || !nombrePlato.isEmpty()){
-             lista_plato=buscarPlato(precioMax,precioMin,nombrePlato);
+
+            //lista_plato=buscarPlato(precioMax,precioMin,nombrePlato);
          }*/
 
         nombrePlato = this.getIntent().getStringExtra("nombrePlato");
@@ -59,10 +61,12 @@ public class Lista_plato extends AppCompatActivity {
 
         //Toast.makeText(this,nombrePlato, Toast.LENGTH_LONG).show();
 
-             lista_plato = PlatoRepository.getInstance().filtrarPlatos(nombrePlato,miHandler);
+        lista_plato = PlatoRepository.getInstance().filtrarPlatos(nombrePlato,miHandler);
 
        //  adapter = new Adaptador_lista_plato(Global.listaPlatos);
-        adapter = new Adaptador_lista_plato(lista_plato);
+
+         tilde = this.getIntent().getStringExtra("tilde");
+        adapter = new Adaptador_lista_plato(lista_plato,tilde);
          rvplato.setAdapter(adapter);
     }
 

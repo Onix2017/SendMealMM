@@ -50,11 +50,13 @@ public class home extends AppCompatActivity {
             case R.id.mnuOpt3:
                 //Toast.makeText(this, "Opcion Crear Item", Toast.LENGTH_LONG).show();
                 Intent i3 = new Intent(this, Lista_plato.class);
+                i3.putExtra("tilde", "1");
                 startActivity(i3);
                 return true;
             case R.id.mnuOpt4:
                 //Toast.makeText(this, "Opcion Buscar Plato", Toast.LENGTH_LONG).show();
                 Intent i4 = new Intent(this, busquedaPlato.class);
+                i4.putExtra("tilde", "2");
                 startActivity(i4);
                 return true;
         }
