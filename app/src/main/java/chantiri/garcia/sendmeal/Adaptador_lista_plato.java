@@ -161,7 +161,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
         }
 
         public void aceptar(String idPlato) {
-            Log.d("id plato a borrar",idPlato);
+          //  Log.d("id plato a borrar",idPlato);
             ArrayList<Plato> listaPlatos;
           //  int idP = buscarPosPlato(idPlato);
 
@@ -186,7 +186,7 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
             int i = 0;
             int cantPlato = listaPlatos.size()-1;
             while (i< cantPlato){
-                if(listaPlatos.get(i).id_plato.toString() == idPlato){
+                if(listaPlatos.get(i).id_plato.toString().equals(idPlato)){
                     return listaPlatos.get(i);
                 }else{
                     i++;

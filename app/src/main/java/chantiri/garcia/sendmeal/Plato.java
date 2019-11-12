@@ -7,12 +7,23 @@ public class Plato {
     Double precio_plato;
     Integer calorias_plato;
 
+
+    Integer id;
+
     public Plato(Integer id_plato, String tituto_plato, String descripcion_plato, Double precio_plato, Integer calorias_plato) {
         this.id_plato = id_plato;
         this.tituto_plato = tituto_plato;
         this.descripcion_plato = descripcion_plato;
         this.precio_plato = precio_plato;
         this.calorias_plato = calorias_plato;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
