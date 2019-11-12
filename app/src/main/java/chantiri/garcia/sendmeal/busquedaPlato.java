@@ -26,7 +26,8 @@ public class busquedaPlato extends AppCompatActivity {
         buscarPlato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ((precioMax.getText().toString() == null || precioMin.getText().toString() == null ) &&  (nombPlato.getText().toString() == null)){
+                if ((precioMax.getText().toString().isEmpty() || precioMin.getText().toString().isEmpty() )
+                        &&  (nombPlato.getText().toString().isEmpty())){
                     Toast.makeText(busquedaPlato.this, "Ingrese Min y Max o nombre de plato", Toast.LENGTH_LONG).show();
                 }
                 else{

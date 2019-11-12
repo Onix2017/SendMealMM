@@ -19,10 +19,12 @@ public interface platoRest {
     Call<List<Plato>> buscarTodas();
 
     @GET("platos/")
-    Call<List<Plato>> filtrarPlatos(@Query("tituto_plato") String tituto_plato);
+    Call<List<Plato>> filtrarPlatos(@Query("tituto_plato_like") String tituto_plato,
+                                    @Query("precio_plato_gte") Integer precioMin,
+                                    @Query("precio_plato_lte") Integer precioMax);
 
-    @DELETE("platos/{id}")
-    Call<Void> borrar(@Path("id") Integer id);
+    @DELETE("platos/{id_plato}")
+    Call<Void> borrar(@Path("id_plato") Integer id_plato);
 
     @PUT("platos/{id}")
     Call<Plato> actualizar(@Path("id") Integer id, @Body Plato plato);

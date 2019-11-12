@@ -6,6 +6,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.sip.SipSession;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +25,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import chantiri.garcia.sendmeal.Dao.PlatoRepository;
 
 public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_plato.PlatoViewHolder> {
 
@@ -155,12 +161,38 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
         }
 
         public void aceptar(String idPlato) {
-            Global.listaPlatos.remove(buscarPosPlato(idPlato));
+            Log.d("id plato a borrar",idPlato);
+            ArrayList<Plato> listaPlatos;
+          //  int idP = buscarPosPlato(idPlato);
+
+            PlatoRepository.getInstance().listarPlato(miHandler);
+            listaPlatos = PlatoRepository.getInstance().getListaPlatos();
+
+            Plato plato = buscarPlatoJson(listaPlatos,idPlato);
+
+            PlatoRepository.getInstance().borrarPlato(plato,miHandler);
+
+
+          //  Global.listaPlatos.remove(buscarPosPlato(idPlato));
             ((Activity) context).recreate();
             }
 
 
         public void cancelar() {
+        }
+
+        public Plato buscarPlatoJson(ArrayList<Plato> listaPlatos, String idPlato){
+            Plato plato;
+            int i = 0;
+            int cantPlato = listaPlatos.size()-1;
+            while (i< cantPlato){
+                if(listaPlatos.get(i).id_plato.toString() == idPlato){
+                    return listaPlatos.get(i);
+                }else{
+                    i++;
+                }
+            }
+            return listaPlatos.get(i);
         }
 
         public int buscarPosPlato (String idPlatoRecup){
@@ -178,7 +210,20 @@ public class Adaptador_lista_plato extends RecyclerView.Adapter<Adaptador_lista_
 
             return i;
         }
+        Handler miHandler = new Handler(Looper.myLooper()){
+            @Override
+            public void handleMessage(Message msg) {
+                Log.d("APP_2","Vuelve al handler"+msg.arg1);
 
+        /*    switch (msg.arg1 ){
+                case PlatoRepository._ALTA_OBRA:
+                case PlatoRepository._UPDATE_OBRA:
+                    Intent i = new Intent(PlatoActivity.this,PlatoListActivity.class);
+                    startActivity(i);
+                    break;
+            }*/
+            }
+        };
       }
 }
 

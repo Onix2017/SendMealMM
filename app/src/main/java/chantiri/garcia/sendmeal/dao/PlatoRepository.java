@@ -167,8 +167,8 @@ public class PlatoRepository {
         return listaPlatos;
     }
 
-    public ArrayList<Plato> filtrarPlatos(String nomP, final Handler h){
-        Call<List<Plato>> llamada = this.platoRest.filtrarPlatos(nomP);
+    public ArrayList<Plato> filtrarPlatos(String nomP, Integer pMin, Integer pMax,final Handler h){
+        Call<List<Plato>> llamada = this.platoRest.filtrarPlatos(nomP,pMin,pMax);
         llamada.enqueue(new Callback<List<Plato>>() {
             @Override
             public void onResponse(Call<List<Plato>> call, Response<List<Plato>> response) {
